@@ -33,7 +33,7 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>
-                    See Your Books
+                    See Your Saved Stuff
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
