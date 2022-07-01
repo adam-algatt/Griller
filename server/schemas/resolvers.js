@@ -30,6 +30,20 @@ const resolvers = {
 
             return { token, user };
         },
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+
+            if (!user) {
+                throw new AuthenticationError('User not found');
+            }
+            const correctPW = await user.isCorrectPassword(password);
+
+            if (!correctPW) {
+                throw new AuthenticationError('Incorrect password!');
+            }
+            const token = signToken(user);
+            return { token, user };
+        },
         addPost: async (parent, args, context ) => {
             if (context.user) {
                 const post = await Post.create({ ...args, username: context.user.username });
