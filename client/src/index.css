@@ -138,9 +138,7 @@ header {
   transition: .5s;
 }
 
-
-
-.login-box form a {
+.login-box form button {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -152,6 +150,10 @@ header {
   transition: .5s;
   margin-top: 40px;
   letter-spacing: 4px
+}
+
+::placeholder {
+  color: white
 }
 
 .login-box a:hover {
@@ -169,7 +171,7 @@ header {
   display: block;
 }
 
-.login-box a span:nth-child(1) {
+.login-box a span:nth-child(1)  button {
   top: 0;
   left: -100%;
   width: 100%;
@@ -187,7 +189,7 @@ header {
   }
 }
 
-.login-box a span:nth-child(2) {
+.login-box a span:nth-child(2) button {
   top: -100%;
   right: 0;
   width: 2px;
@@ -195,6 +197,11 @@ header {
   background: linear-gradient(180deg, transparent, #03e9f4);
   animation: btn-anim2 1s linear infinite;
   animation-delay: .25s
+}
+
+.login-box button {
+  background: transparent;
+  border: none;
 }
 
 @keyframes btn-anim2 {
