@@ -66,7 +66,7 @@ code {
 }
 
 .title {
-  background:url(./assests/fire2.gif);
+  background:url(./assets/fire2.gif);
   font-family: fantasy;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -243,5 +243,4 @@ header {
   50%,100% {
     bottom: 100%;
   }
-}
-
+} 

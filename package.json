@@ -14,10 +14,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +39,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "concurrently": "^7.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adam-algatt/Griller.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adam-algatt/Griller/issues"
+  },
+  "homepage": "https://github.com/adam-algatt/Griller#readme"
 }
