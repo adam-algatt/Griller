@@ -358,3 +358,16 @@ h1 span:nth-child(7) {
 .button:hover {
   background-position: 185% 50%;
 }
+
+.cp-text, .push { color: rgba(255, 255, 255, 0.856); text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  height: 142px;
+  
+  }
+  
+  .wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px;
+  }
