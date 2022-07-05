@@ -5,6 +5,23 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
+        savedRecipes: [Recipe]
+    }
+
+    type Recipe {
+        recipeId: ID!
+        category: String
+        title: String
+        link: String
+        image: String
+    }
+
+    input SavedRecipe {
+        recipeId: String
+        category: String
+        title: String
+        link: String
+        image: String
     }
 
     type Post {
@@ -28,6 +45,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addPost(postTitle: String!): Post
+        saveRecipe(recipeId: SavedRecipe!): User
     }
 `;
 

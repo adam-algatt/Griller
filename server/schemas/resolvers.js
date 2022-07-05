@@ -56,6 +56,17 @@ const resolvers = {
                 return post;
             }
             throw new AuthenticationError('You must be logged in!');
+        },
+        saveRecipe: async ( parent, { recipe }, context) => {
+            if(context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $addtoSet: { savedRecipes: recipe }},
+                    { new: true }
+                )
+                return updatedUser
+                }
+            throw new AuthenticationError('Please login')
         }
     }
 };
