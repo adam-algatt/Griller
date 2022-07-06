@@ -9,7 +9,7 @@ import Nav from './components/Nav';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import SearchRecipes from './pages/SearchRecipes';
+import Recipes from './pages/Recipes';
 
 
 const httpLink = createHttpLink({
@@ -54,7 +54,7 @@ function App() {
                   />
                   <Route 
                     path="/recipes"
-                    element={<SearchRecipes />}
+                    element={<Recipes />}
                   />  
                 </Routes>
             </div>  

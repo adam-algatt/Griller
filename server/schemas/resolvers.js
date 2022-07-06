@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Post } = require('../models');
+const { User, Recipe, Post } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -20,8 +20,12 @@ const resolvers = {
         },
         posts: async() => {
             return Post.find()
+        },
+        recipes: async() => {
+            return Recipe.find()
         }
     },
+
 
     Mutation: {
         addUser: async (parent, args) => {
@@ -57,17 +61,22 @@ const resolvers = {
             }
             throw new AuthenticationError('You must be logged in!');
         },
-        saveRecipe: async ( parent, { recipe }, context) => {
-            if(context.user) {
-                const updatedUser = await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $addtoSet: { savedRecipes: recipe }},
-                    { new: true }
-                )
-                return updatedUser
-                }
-            throw new AuthenticationError('Please login')
-        }
+        saveRecipe: async ( parent,  args ) => {
+            const recipe = await Recipe(args);
+
+            return recipe;
+        },
+        // saveRecipe: async ( parent, { recipe }, context) => {
+        //     if(context.user) {
+        //         const updatedUser = await User.findByIdAndUpdate(
+        //             { _id: context.user._id },
+        //             { $addtoSet: { savedRecipes: recipe }},
+        //             { new: true }
+        //         )
+        //         return updatedUser
+        //         }
+            //throw new AuthenticationError('Please login')
+        // }
     }
 };
 

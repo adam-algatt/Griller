@@ -1,8 +1,4 @@
-import React, { useState } from 'react';
-import Modal from '../Modal';
-
-const RecipeList = ({ category }) => {
-const [recipes] =([
+const recipes =[
     {
       title: 'Swordfish with Charred Lemon Salsa Verde',
       link: 'https://www.weber.com/US/en/recipes/seafood/swordfish/weber-2266764.html',
@@ -13,7 +9,7 @@ const [recipes] =([
       title: 'Spatchcocked Game Hen  with Spicy Apricot Glaze',
       link: 'https://www.weber.com/US/en/recipes/poultry/spatchcocked-game-hen/weber-2264783.html',
       image: 'https://ux2cms.imgix.net/images/Recipes_US/SpatchcockedGameHen_TuffyStone.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5944&fp-y=0.5919&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-      category: 'poultyr'
+      category: 'poultry'
     },
     {
       title: 'Southern Shrimp & Grits',
@@ -561,40 +557,8 @@ const [recipes] =([
       image: 'https://ux2cms.imgix.net/images/Recipes_US/wa_r69.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
       category: 'pork'
     },
-    ]);
+];
 
-    const currentRecipes = recipes.filter(( recipe ) => recipe.category === 'pork');
-    const [currentRecipe, setCurrentRecipe] = useState();
-    const [isModalOpen, setIsModalOpen] = useState(false);
+const recipe = recipes.find((element) => element.category === 'desserts');
 
-    const toggleModal = (image, i) => {
-        setCurrentRecipe({...image, index: i})
-        setIsModalOpen(!isModalOpen);
-
-        console.log([currentRecipes])
-    }
-
-    return (
-         <div>
-             return (
-            <div>
-                    {isModalOpen && (
-                        <Modal currentRecipe={currentRecipe} onClose={toggleModal} />
-                    )}
-                </div>
-            )
-            <div className="flex-row">
-                {currentRecipes.map((image, i) => (
-                    <img
-                        src={`${image}`}
-                        alt={recipes.title}
-                        key={recipes.title}
-                    />    
-                ))}
-            </div>
-        </div>
-    )
-};
- 
-
-export default RecipeList;
+console.log(recipe);

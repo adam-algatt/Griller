@@ -1,12 +1,11 @@
-const mongoose = require('mongoose');
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const recipeSchema = new Schema({
-  category: [
+const recipeSchema = new Schema(
+  {
+  category: 
     {
       type: String,
     },
-  ],
     title: {
       type: String,
       required: true,
@@ -18,5 +17,7 @@ const recipeSchema = new Schema({
       type: String,
     },
   });
+  
+const Recipe= model('Recipe', recipeSchema);
 
-module.exports = recipeSchema;
+module.exports = Recipe;

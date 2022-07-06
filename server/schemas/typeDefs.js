@@ -16,14 +16,6 @@ const typeDefs = gql`
         image: String
     }
 
-    input SavedRecipe {
-        recipeId: String
-        category: String
-        title: String
-        link: String
-        image: String
-    }
-
     type Post {
         _id: ID
         postTitle: String
@@ -39,13 +31,14 @@ const typeDefs = gql`
         me: User
         users: [User]
         posts: [Post]
+        recipes: [Recipe]
     }
 
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addPost(postTitle: String!): Post
-        saveRecipe(recipeId: SavedRecipe!): User
+        saveRecipe(category: String!, title: String!, link: String!, image: String!, ): Recipe
     }
 `;
 
