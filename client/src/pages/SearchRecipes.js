@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { Container, Col, Form, Button, Card, ToggleButtonGroup } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
-import { searchWeber } from '../utils/API';
+import { RecipeList } from '../components/RecipeList'; 
+//import { searchWeber } from '../utils/API';
 //import { saveRecipe } from '../utils/scraper';
 import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
 import { useMutation } from '@apollo/client';
@@ -14,18 +16,18 @@ const SearchRecipes = () => {
    // create state for holding our search field data
     const [searchInput, setSearchInput] = useState('');
 
-   // create state to hold saved bookId values
+   // create state to hold saved recipeId values
     const [savedRecipesIds, setSavedRecipesIds] = useState(getSavedRecipeIds());
 
     const [saveRecipe, { error }] = useMutation(SAVE_RECIPE);
 
-   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
+   // set up useEffect hook to save `savedRecipesIds` list to localStorage on component unmount
    // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
     useEffect(() => {
      return () => saveRecipeIds(savedRecipesIds);
    });
 
-  // create method to search for books and set state on form submit
+  // create method to search for recipes and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -34,8 +36,7 @@ const SearchRecipes = () => {
     }
     
     try {
-      console.log(searchInput);
-      const response = await searchWeber(searchInput);
+      const response = await (searchInput);
       console.log(searchInput);
 
       if (!response.ok) {
@@ -55,7 +56,7 @@ const SearchRecipes = () => {
     }
   };
 
-  // create function to handle saving a book to our database
+  // create function to handle saving a recipe to our database
   const handleSaveRecipe = async (recipeId) => {
     // find the recipe in `searchedRecipes` state by the matching id
     const recipeToSave = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
@@ -77,7 +78,7 @@ const SearchRecipes = () => {
         throw new Error('something went wrong!');
       }
 
-      // if book successfully saves to user's account, save book id to state
+      // if recipe successfully saves to user's account, save recipe id to state
       setSavedRecipesIds([...savedRecipesIds, recipeToSave.recipeId]);
     } catch (err) {
       console.error(err);
@@ -155,6 +156,7 @@ const SearchRecipes = () => {
                 </Button>
               </Col>
           </Form>
+          {/* <RecipeList></RecipeList> */}
         </Container>
 
       <Container>
@@ -163,6 +165,50 @@ const SearchRecipes = () => {
             ? `Viewing ${searchedRecipes.length} results:`
             : 'Select a recipe category to begin'}
         </h2>
+        <Card>
+              <Card border='dark'>
+                <Card.Img src="https://ux2cms.imgix.net/images/Kalua-Pork300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal" width="500" height="500" />
+                <Card.Body>
+                  <Card.Title>Kalua Pork</Card.Title>
+                  <p className='small'>Category: Pork</p>
+                  {Auth.loggedIn() && (
+                    <Button
+                    className='btn-block btn-info'
+                    onClick={() => handleSaveRecipe()}>Save
+                  </Button>
+                  )}
+                </Card.Body>
+              </Card>    
+              <Card border='dark'>
+                <Card.Img src="https://ux2cms.imgix.net/images/Recipes_US/Tuffy_Stone_BBQ_Ribs_OnGrill.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.4755&fp-y=0.5557&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normalhttps://ux2cms.imgix.net/images/Kalua-Pork300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal" width="500" height="500" />
+                <Card.Body>
+                  <Card.Title>Smoked Pork Ribs</Card.Title>
+                  <p className='small'>Category: Pork</p>
+                  {Auth.loggedIn() && (
+                    <Button
+                    className='btn-block btn-info'
+                    onClick={() => handleSaveRecipe()}>Save
+                  </Button>
+                  )}
+                </Card.Body>
+              </Card>   
+              <Card border='dark'>
+                <Card.Img src="https://ux2cms.imgix.net/images/Recipes_US/weber-swordfish-lemon-salsa-verde_web.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal" width="500" height="500" />
+                <Card.Body>
+                  <Card.Title>Swordfish with Charred Lemon Salsa Verde</Card.Title>
+                  <p className='small'>Category: Seafood</p>
+                  {Auth.loggedIn() && (
+                    <Button
+                    className='btn-block btn-info'
+                    onClick={() => handleSaveRecipe()}>Save
+                  </Button>
+                  )}
+                </Card.Body>
+              </Card>   
+        </Card>
+      
+       
+       
         <Card>
           {searchedRecipes.map((recipe) => {
             return (
@@ -188,6 +234,7 @@ const SearchRecipes = () => {
             );
           })}
         </Card>
+
       </Container>
     </>
   );

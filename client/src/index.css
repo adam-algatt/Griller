@@ -81,7 +81,6 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   position: -webkit-sticky;
-  position: relative;
   top: 0;
   border: 1px solid black;
   z-index: -1;
@@ -178,6 +177,21 @@ header {
   height: 2px;
   background: linear-gradient(90deg, transparent, #03e9f4);
   animation: btn-anim1 1s linear infinite;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  letter-spacing: 4px
 }
 
 @keyframes btn-anim1 {

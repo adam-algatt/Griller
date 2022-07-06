@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
-const Header = () => {
+const Nav = () => {
   const logout = event => {
     event.preventDefault();
     Auth.logout();
@@ -22,7 +22,7 @@ const Header = () => {
                   {Auth.loggedIn() ? (
                 <>
                   <Link to="/profile" className="link">Me</Link>
-                  <a href="/" className='link' onClick={logout}>
+                  <a href="/" className="link" onClick={logout}>
                     Logout
                   </a>
                 </>
@@ -40,6 +40,5 @@ const Header = () => {
   );
 };
 
-export default Header;
-
+export default Nav;
 
