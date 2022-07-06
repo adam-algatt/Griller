@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Recipes from './pages/Recipes';
+import SingleRecipe from './pages/SingleRecipe';
 
 
 const httpLink = createHttpLink({
@@ -55,7 +56,11 @@ function App() {
                   <Route 
                     path="/recipes"
                     element={<Recipes />}
-                  />  
+                  /> 
+                  <Route
+                    path="/recipe/:id"
+                  element={<SingleRecipe />}
+                /> 
                 </Routes>
             </div>  
         </div>    

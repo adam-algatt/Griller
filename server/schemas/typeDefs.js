@@ -9,7 +9,7 @@ const typeDefs = gql`
     }
 
     type Recipe {
-        recipeId: ID!
+        _id: ID!
         category: String
         title: String
         link: String
