@@ -23,7 +23,10 @@ const resolvers = {
         },
         recipes: async() => {
             return Recipe.find()
-        }
+        },
+        recipeCategory: async( parent, { category } ) => {
+            return Recipe.find({ category })
+        } 
     },
 
 
@@ -61,8 +64,8 @@ const resolvers = {
             }
             throw new AuthenticationError('You must be logged in!');
         },
-        saveRecipe: async ( parent,  args ) => {
-            const recipe = await Recipe(args);
+        addRecipe: async (parent, args ) => {
+            const recipe = await Recipe.create(args);
 
             return recipe;
         },

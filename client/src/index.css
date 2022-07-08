@@ -213,6 +213,16 @@ button {
   animation-delay: .25s
 }
 
+.card {
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-weight: bolder;
+  font-size: larger;
+}
+
 .login-box button {
   background: transparent;
   border: none;
@@ -263,4 +273,4 @@ button {
   50%,100% {
     bottom: 100%;
   }
-} 
+}

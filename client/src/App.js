@@ -57,10 +57,10 @@ function App() {
                     path="/recipes"
                     element={<Recipes />}
                   /> 
-                  <Route
-                    path="/recipe/:id"
-                  element={<SingleRecipe />}
-                /> 
+                  {/* <Route
+                    path="/recipe/:category"
+                  element={<SingleRecipe />} 
+                />  */}
                 </Routes>
             </div>  
         </div>    

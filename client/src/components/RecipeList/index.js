@@ -1,34 +1,42 @@
 import React from 'react';
 import { Link } from  'react-router-dom';
+import { Button } from 'react-bootstrap';
+import Auth from '../../utils/auth';
 
-const RecipeList = ({ recipes, title }) => {
+const RecipeList = ({ recipes }) => {
+
+    
     //if (!thoughts.length) {
      //   return <h3>No Thoughts Yet</h3>;
     //}
 
-    const currentRecipes = recipes.filter((recipe) => recipe.category === 'pork')
+    // const currentRecipes = recipes.find((recipe) => recipe.category === {searchInput})
 
     return (
         <div>
-            <h3>{title}</h3>
-            
-            {currentRecipes.map((recipe, i) => (
+            <h3>{}</h3>
+            {recipes && recipes.map( recipe => (
                     <div key={recipe._id} className="card mb-3">
                         <div className="card-body">
-                          <div>Yum</div>
                             <Link to={`/recipe/${recipe._id}`}>
                                 <p>{recipe.title}</p>
-                                <p className="mb-0">
-                                    {recipe.image}
-                                </p>
+                                <img className="mb-0" src={recipe.image} alt={recipe.title}/>
+                                
                                 <p className="mb-0">  
-                                    Click here to {recipe.link} get the recipe!
+                                Click here to get the recipe!
+                                <url src={recipe.link}></url>
                                 </p>
                             </Link>
-                        </div>    
-                    </div>
-                  ))
-            };        
+                        </div>   
+                        {Auth.loggedIn() && (
+                    <Button
+                        className='btn-block btn-info'
+                        // onClick={() => handleSaveRecipe()}
+                        >Save
+                    </Button> )}
+                </div>
+            ))
+            }        
         </div>
   
     );
@@ -53,204 +61,204 @@ export default RecipeList;
 //       image: 'https://ux2cms.imgix.net/images/Recipes_US/weber-swordfish-lemon-salsa-verde_web.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
 //       category: 'seafood'
 //     },
-//     {
-//       title: 'Spatchcocked Game Hen  with Spicy Apricot Glaze',
-//       link: 'https://www.weber.com/US/en/recipes/poultry/spatchcocked-game-hen/weber-2264783.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/SpatchcockedGameHen_TuffyStone.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5944&fp-y=0.5919&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'poultyr'
-//     },
-//     {
-//       title: 'Southern Shrimp & Grits',
-//       link: 'https://www.weber.com/US/en/recipes/seafood/southern-shrimp-grits/weber-2264741.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/SouthernShrimpGrits_CharlieMcKenna.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.4476&fp-y=0.634&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'seafood'
-//     },
-//     {
-//       title: 'Smoked Pork Ribs',
-//       link: 'https://www.weber.com/US/en/recipes/all-recipes/smoked-pork-ribs/weber-2262561.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/Tuffy_Stone_BBQ_Ribs_OnGrill.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.4755&fp-y=0.5557&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'pork'    
-//     },
-//     {
-//       title: 'Mezcal Marinated Fajitas',
-//       link: 'https://www.weber.com/US/en/recipes/red-meat/mezcal-marinated-fajitas/weber-2262490.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/Rick_Martinez_Fajitas_05.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.549&fp-y=0.6842&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',    
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'Grilled Moroccan Lamb Steaks',
-//       link: 'https://www.weber.com/US/en/recipes/red-meat/grilled-moroccan-lamb-steaks/weber-2260442.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/GrilledMoroccanLambSteaks_Rick_Martinez_vB.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.493&fp-y=0.6091&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'Skirt Steak Sandwich  with Arugula and Tomato Aioli',
-//       link: 'https://www.weber.com/US/en/recipes/red-meat/skirt-steak-sandwich/weber-2249629.html',
-//       image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/WC_SkirtSteakSandwich_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'Apple Galette',
-//       link: 'https://www.weber.com/US/en/recipes/desserts/apple-galette/weber-2249610.html',
-//       image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/WC_Apple_Galette_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'desserts'
-//     },
-//     {
-//       title: 'Sausage and Pepper Calzones',
-//       link: 'https://www.weber.com/US/en/recipes/red-meat/sausage-and-pepper-calzones/weber-2249584.html',
-//       image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/weber-calzones.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',       
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'Reverse Seared Porterhouse Steak with Zinfandel Sauce',
-//       link: 'https://www.weber.com/US/en/recipes/red-meat/reverse-seared-porterhouse-steak/weber-2249553.html',
-//       image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/Porterhouse-Steaks-Hero.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.4126&fp-y=0.4835&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'Spiced Cauliflower Steaks',
-//       link: 'https://www.weber.com/US/en/recipes/veggies/spiced-cauliflower-steaks/weber-2249531.html',
-//       image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/WC_SpicedCauliflowerSteaks_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.458&fp-y=0.6019&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'veggies'
-//     },
-//     {
-//       title: 'Chorizo and Potato Hash with Egg',
-//       link: 'https://www.weber.com/US/en/recipes/pork/chorizo-and-potato-hash-with-egg/weber-2249503.html',
-//       image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/WC_Chorizo_Potato_Hash_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5734&fp-y=0.4328&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'pork'
-//     },
-//     {
-//       title: 'Marinated Ahi Tuna Steaks with Cucumber Scallion Relish',
-//       link: 'https://www.weber.com/US/en/recipes/seafood/marinated-ahi-tuna-steaks/weber-2242513.html',
-//       image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/WC_AhiTuna_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',    
-//       category: 'seafood'
-//     },
-//     {
-//       title: 'Butterflied Leg of Lamb with Anchovies',
-//       link: 'https://www.weber.com/US/en/recipes/butterflied-leg-of-lamb-with-anchovies/weber-2007627.html',
-//       image: 'https://ux2cms.imgix.net/images/Butterflied-Leg-of-Lamb-with-Anchovies-K.H.-Edits.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'BBQ Baby Back Ribs',
-//       link: 'https://www.weber.com/US/en/recipes/pork/bbq-baby-back-ribs/weber-2201493.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/BBQ_Baby_Back_Ribs_recipe_02_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'pork'
-//     },
-//     {
-//       title: 'Buttermilk Brined Rotisserie Chicken',
-//       link: 'https://www.weber.com/US/en/recipes/poultry/buttermilk-brined-rotisserie-chicken/weber-2050978.html',
-//       image: 'https://content-images.weber.com/content/Buttermilk-Chicken300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'poultry'
-//     },
-//     {
-//       title: 'Smoked Salmon',
-//       link: 'https://www.weber.com/US/en/recipes/seafood/smoked-salmon/weber-2201473.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/Smoked_Salmon_recipe_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'seafood'
-//     },
-//     {
-//       title: 'SmokeFired Teriyaki Salmon',
-//       link: 'https://www.weber.com/US/en/recipes/seafood/smokefired-teriyaki-salmon/weber-2201445.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/Teriyaki_Salmon_recipe_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',   
-//       category: 'seafood'
-//     },
-//     {
-//       title: "Smoked S'mores Cookie Bars",
-//       link: 'https://www.weber.com/US/en/recipes/desserts/smoked-smores-cookie-bars/weber-2200211.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/Smoked_SmoresCookieBars.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'desserts'
-//     },
-//     {
-//       title: 'Reverse Seared New York Strip Steaks',
-//       link: 'https://www.weber.com/US/en/recipes/red-meat/reverse-seared-new-york-strip-steaks/weber-2200163.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/ReverseSeared_NewYorkStripSteaks.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal', 
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'Tandoori Chicken Skewers with Naan Bread',
-//       link: 'https://www.weber.com/US/en/recipes/poultry/tandoori-chicken-skewers/weber-2193784.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/TandooriChickenSkewerswithNaanBread_recipe_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'poultry'
-//     },
-//     {
-//       title: 'Lobster Tails  with Basil-Lemon Butter',
-//       link: 'https://www.weber.com/US/en/recipes/seafood/lobster-tails/weber-2114786.html',
-//       image: 'https://content-images.weber.com/content/recipes/Lobster-Tails-with-Basil-Lemon-Butter.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'seafood'
-//     },
-//     {
-//       title: 'Smoky Marmalade-Glazed Ham with Orange-Dill Sauce',
-//       link: 'https://www.weber.com/US/en/recipes/pork/smoky-marmalade-glazed-ham/weber-2109895.html',
-//       image: 'https://ux2cms.imgix.net/images/Recipes_US/Smokey-Marmalade-Glazed-Ham-copy.jpeg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.4545&fp-y=0.5437&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'pork'
-//     },
-//     {
-//       title: 'Tri-Tip Roast  with Coffee-Chile Rub and Adobo Sauce',
-//       link: 'https://www.weber.com/US/en/recipes/red-meat/tri-tip-roast/weber-2071757.html',
-//       image: 'https://content-images.weber.com/weber-app/Tri-Tip300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'Flank Steak  with Caramelized Shallots and Steak Fries',
-//       link: 'https://www.weber.com/US/en/recipes/red-meat/flank-steak/weber-2071716.html',
-//       image: 'https://content-images.weber.com/weber-app/Flank-Steak-Shallots-Fries300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',    
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'Cider-Brined Pork Rib Roast  with Roasted Apples and Onions',
-//       link: 'https://www.weber.com/US/en/recipes/pork/cider-brined-pork-rib-roast/weber-2071673.html',
-//       image: 'https://content-images.weber.com/weber-app/Pork-Roast300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'pork'
-//     },
-//     {
-//       title: 'Chicken Shawarma  with Yogurt-Tahini Sauce',
-//       link: 'https://www.weber.com/US/en/recipes/poultry/chicken-shawarma/weber-2071632.html',
-//       image: 'https://content-images.weber.com/weber-app/Chicken-Shawarma300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'poultry'
-//     },
-//     {
-//       title: 'Chile-Rubbed Flank Steak with Black Bean Salad',
-//       link: 'https://www.weber.com/US/en/recipes/red-meat/chile-rubbed-flank-steak/weber-2058348.html',
-//       image: 'https://ux2cms.imgix.net/images/FLANKSTEAK_SQIARE-1.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'Tuscan T-Bone Steak  with Arugula and Lemon',
-//       link: 'https://www.weber.com/US/en/recipes/red-meat/tuscan-t-bone-steak/weber-2056656.html',
-//       image: 'https://content-images.weber.com/weber-app/Tuscan-TBone300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'red-meat'
-//     },
-//     {
-//       title: 'Salmon  with Grilled Lemons and Yogurt Sauce',
-//       link: 'https://www.weber.com/US/en/recipes/seafood/salmon/weber-2056574.html',
-//       image: 'https://content-images.weber.com/weber-app/Salmon300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'seafood'
-//     },
-//     {
-//       title: 'Korean Shredded Pork Lettuce Wraps',
-//       link: 'https://www.weber.com/US/en/recipes/pork/korean-shredded-pork-lettuce-wraps/weber-2056491.html',
-//       image: 'https://content-images.weber.com/weber-app/PulledPorkLettuceWraps300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',        
-//       category: 'pork'
-//     },
-//     {
-//       title: 'Chicken Breasts with Roasted Red Bell Pepper Romesco Sauce',
-//       link: 'https://www.weber.com/US/en/recipes/poultry/chicken-breasts/weber-2056453.html',
-//       image: 'https://ux2cms.imgix.net/images/Chicken-Romesco300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'poultry'
-//     },
-//     {
-//       title: 'Cuban Mojo Chicken Legs',
-//       link: 'https://www.weber.com/US/en/recipes/poultry/cuban-mojo-chicken-legs/weber-2051124.html',
-//       image: 'https://content-images.weber.com/weber-app/Mojo-Chicken-Legs300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'poultry'
-//     },
-//     {
-//       title: 'Maple Glazed Salmon Steaks  with Grilled Corn Salsa',
-//       link: 'https://www.weber.com/US/en/recipes/seafood/maple-glazed-salmon-steaks/weber-2051083.html',
-//       image: 'https://content-images.weber.com/weber-app/Maple-Salmon-Steak300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
-//       category: 'seafood'
-//     },
+    // {
+    //   title: 'Spatchcocked Game Hen  with Spicy Apricot Glaze',
+    //   link: 'https://www.weber.com/US/en/recipes/poultry/spatchcocked-game-hen/weber-2264783.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/SpatchcockedGameHen_TuffyStone.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5944&fp-y=0.5919&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'poultyr'
+    // },
+    // {
+    //   title: 'Southern Shrimp & Grits',
+    //   link: 'https://www.weber.com/US/en/recipes/seafood/southern-shrimp-grits/weber-2264741.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/SouthernShrimpGrits_CharlieMcKenna.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.4476&fp-y=0.634&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'seafood'
+    // },
+    // {
+    //   title: 'Smoked Pork Ribs',
+    //   link: 'https://www.weber.com/US/en/recipes/all-recipes/smoked-pork-ribs/weber-2262561.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/Tuffy_Stone_BBQ_Ribs_OnGrill.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.4755&fp-y=0.5557&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'pork'    
+    // },
+    // {
+    //   title: 'Mezcal Marinated Fajitas',
+    //   link: 'https://www.weber.com/US/en/recipes/red-meat/mezcal-marinated-fajitas/weber-2262490.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/Rick_Martinez_Fajitas_05.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.549&fp-y=0.6842&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',    
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'Grilled Moroccan Lamb Steaks',
+    //   link: 'https://www.weber.com/US/en/recipes/red-meat/grilled-moroccan-lamb-steaks/weber-2260442.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/GrilledMoroccanLambSteaks_Rick_Martinez_vB.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.493&fp-y=0.6091&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'Skirt Steak Sandwich  with Arugula and Tomato Aioli',
+    //   link: 'https://www.weber.com/US/en/recipes/red-meat/skirt-steak-sandwich/weber-2249629.html',
+    //   image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/WC_SkirtSteakSandwich_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'Apple Galette',
+    //   link: 'https://www.weber.com/US/en/recipes/desserts/apple-galette/weber-2249610.html',
+    //   image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/WC_Apple_Galette_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'desserts'
+    // },
+    // {
+    //   title: 'Sausage and Pepper Calzones',
+    //   link: 'https://www.weber.com/US/en/recipes/red-meat/sausage-and-pepper-calzones/weber-2249584.html',
+    //   image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/weber-calzones.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',       
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'Reverse Seared Porterhouse Steak with Zinfandel Sauce',
+    //   link: 'https://www.weber.com/US/en/recipes/red-meat/reverse-seared-porterhouse-steak/weber-2249553.html',
+    //   image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/Porterhouse-Steaks-Hero.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.4126&fp-y=0.4835&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'Spiced Cauliflower Steaks',
+    //   link: 'https://www.weber.com/US/en/recipes/veggies/spiced-cauliflower-steaks/weber-2249531.html',
+    //   image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/WC_SpicedCauliflowerSteaks_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.458&fp-y=0.6019&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'veggies'
+    // },
+    // {
+    //   title: 'Chorizo and Potato Hash with Egg',
+    //   link: 'https://www.weber.com/US/en/recipes/pork/chorizo-and-potato-hash-with-egg/weber-2249503.html',
+    //   image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/WC_Chorizo_Potato_Hash_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5734&fp-y=0.4328&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'pork'
+    // },
+    // {
+    //   title: 'Marinated Ahi Tuna Steaks with Cucumber Scallion Relish',
+    //   link: 'https://www.weber.com/US/en/recipes/seafood/marinated-ahi-tuna-steaks/weber-2242513.html',
+    //   image: 'https://ux2cms.imgix.net/images/Weber_Crafted_Recipes/WC_AhiTuna_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',    
+    //   category: 'seafood'
+    // },
+    // {
+    //   title: 'Butterflied Leg of Lamb with Anchovies',
+    //   link: 'https://www.weber.com/US/en/recipes/butterflied-leg-of-lamb-with-anchovies/weber-2007627.html',
+    //   image: 'https://ux2cms.imgix.net/images/Butterflied-Leg-of-Lamb-with-Anchovies-K.H.-Edits.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'BBQ Baby Back Ribs',
+    //   link: 'https://www.weber.com/US/en/recipes/pork/bbq-baby-back-ribs/weber-2201493.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/BBQ_Baby_Back_Ribs_recipe_02_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'pork'
+    // },
+    // {
+    //   title: 'Buttermilk Brined Rotisserie Chicken',
+    //   link: 'https://www.weber.com/US/en/recipes/poultry/buttermilk-brined-rotisserie-chicken/weber-2050978.html',
+    //   image: 'https://content-images.weber.com/content/Buttermilk-Chicken300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'poultry'
+    // },
+    // {
+    //   title: 'Smoked Salmon',
+    //   link: 'https://www.weber.com/US/en/recipes/seafood/smoked-salmon/weber-2201473.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/Smoked_Salmon_recipe_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'seafood'
+    // },
+    // {
+    //   title: 'SmokeFired Teriyaki Salmon',
+    //   link: 'https://www.weber.com/US/en/recipes/seafood/smokefired-teriyaki-salmon/weber-2201445.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/Teriyaki_Salmon_recipe_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',   
+    //   category: 'seafood'
+    // },
+    // {
+    //   title: "Smoked S'mores Cookie Bars",
+    //   link: 'https://www.weber.com/US/en/recipes/desserts/smoked-smores-cookie-bars/weber-2200211.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/Smoked_SmoresCookieBars.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'desserts'
+    // },
+    // {
+    //   title: 'Reverse Seared New York Strip Steaks',
+    //   link: 'https://www.weber.com/US/en/recipes/red-meat/reverse-seared-new-york-strip-steaks/weber-2200163.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/ReverseSeared_NewYorkStripSteaks.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal', 
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'Tandoori Chicken Skewers with Naan Bread',
+    //   link: 'https://www.weber.com/US/en/recipes/poultry/tandoori-chicken-skewers/weber-2193784.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/TandooriChickenSkewerswithNaanBread_recipe_935x580.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'poultry'
+    // },
+    // {
+    //   title: 'Lobster Tails  with Basil-Lemon Butter',
+    //   link: 'https://www.weber.com/US/en/recipes/seafood/lobster-tails/weber-2114786.html',
+    //   image: 'https://content-images.weber.com/content/recipes/Lobster-Tails-with-Basil-Lemon-Butter.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'seafood'
+    // },
+    // {
+    //   title: 'Smoky Marmalade-Glazed Ham with Orange-Dill Sauce',
+    //   link: 'https://www.weber.com/US/en/recipes/pork/smoky-marmalade-glazed-ham/weber-2109895.html',
+    //   image: 'https://ux2cms.imgix.net/images/Recipes_US/Smokey-Marmalade-Glazed-Ham-copy.jpeg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.4545&fp-y=0.5437&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'pork'
+    // },
+    // {
+    //   title: 'Tri-Tip Roast  with Coffee-Chile Rub and Adobo Sauce',
+    //   link: 'https://www.weber.com/US/en/recipes/red-meat/tri-tip-roast/weber-2071757.html',
+    //   image: 'https://content-images.weber.com/weber-app/Tri-Tip300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'Flank Steak  with Caramelized Shallots and Steak Fries',
+    //   link: 'https://www.weber.com/US/en/recipes/red-meat/flank-steak/weber-2071716.html',
+    //   image: 'https://content-images.weber.com/weber-app/Flank-Steak-Shallots-Fries300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',    
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'Cider-Brined Pork Rib Roast  with Roasted Apples and Onions',
+    //   link: 'https://www.weber.com/US/en/recipes/pork/cider-brined-pork-rib-roast/weber-2071673.html',
+    //   image: 'https://content-images.weber.com/weber-app/Pork-Roast300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'pork'
+    // },
+    // {
+    //   title: 'Chicken Shawarma  with Yogurt-Tahini Sauce',
+    //   link: 'https://www.weber.com/US/en/recipes/poultry/chicken-shawarma/weber-2071632.html',
+    //   image: 'https://content-images.weber.com/weber-app/Chicken-Shawarma300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'poultry'
+    // },
+    // {
+    //   title: 'Chile-Rubbed Flank Steak with Black Bean Salad',
+    //   link: 'https://www.weber.com/US/en/recipes/red-meat/chile-rubbed-flank-steak/weber-2058348.html',
+    //   image: 'https://ux2cms.imgix.net/images/FLANKSTEAK_SQIARE-1.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'Tuscan T-Bone Steak  with Arugula and Lemon',
+    //   link: 'https://www.weber.com/US/en/recipes/red-meat/tuscan-t-bone-steak/weber-2056656.html',
+    //   image: 'https://content-images.weber.com/weber-app/Tuscan-TBone300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'red-meat'
+    // },
+    // {
+    //   title: 'Salmon  with Grilled Lemons and Yogurt Sauce',
+    //   link: 'https://www.weber.com/US/en/recipes/seafood/salmon/weber-2056574.html',
+    //   image: 'https://content-images.weber.com/weber-app/Salmon300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'seafood'
+    // },
+    // {
+    //   title: 'Korean Shredded Pork Lettuce Wraps',
+    //   link: 'https://www.weber.com/US/en/recipes/pork/korean-shredded-pork-lettuce-wraps/weber-2056491.html',
+    //   image: 'https://content-images.weber.com/weber-app/PulledPorkLettuceWraps300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',        
+    //   category: 'pork'
+    // },
+    // {
+    //   title: 'Chicken Breasts with Roasted Red Bell Pepper Romesco Sauce',
+    //   link: 'https://www.weber.com/US/en/recipes/poultry/chicken-breasts/weber-2056453.html',
+    //   image: 'https://ux2cms.imgix.net/images/Chicken-Romesco300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'poultry'
+    // },
+    // {
+    //   title: 'Cuban Mojo Chicken Legs',
+    //   link: 'https://www.weber.com/US/en/recipes/poultry/cuban-mojo-chicken-legs/weber-2051124.html',
+    //   image: 'https://content-images.weber.com/weber-app/Mojo-Chicken-Legs300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'poultry'
+    // },
+    // {
+    //   title: 'Maple Glazed Salmon Steaks  with Grilled Corn Salsa',
+    //   link: 'https://www.weber.com/US/en/recipes/seafood/maple-glazed-salmon-steaks/weber-2051083.html',
+    //   image: 'https://content-images.weber.com/weber-app/Maple-Salmon-Steak300.jpg?fit=crop&crop=focalpoint&w=885&auto=compress,format&fp-x=0.5&fp-y=0.5&fp-z=1&blend=https://ux2cms.imgix.net/system-images/gray-overlay-large.png?bs=inherit&balph=40&bm=normal',
+    //   category: 'seafood'
+    // },
 //     {
 //       title: 'Balsamic Glazed Pork Chops  with Peach Salsa',
 //       link: 'https://www.weber.com/US/en/recipes/pork/balsamic-glazed-pork-chops/weber-2050943.html',
@@ -607,8 +615,8 @@ export default RecipeList;
 //     },
 //     ]);
 
-//     const currentRecipes = recipes.filter(( recipe ) => recipe.category === 'pork');
-//     const [currentRecipe, setCurrentRecipe] = useState();
+    // const currentRecipes = recipes.filter(( recipe ) => recipe.category === 'pork');
+    // const [currentRecipe, setCurrentRecipe] = useState();
 //     const [isModalOpen, setIsModalOpen] = useState(false);
 
 //     const toggleModal = (image, i) => {
@@ -618,15 +626,15 @@ export default RecipeList;
 //         console.log([currentRecipes])
 //     }
 
-//     return (
-//          <div>
-//              return (
-//             <div>
-//                     {isModalOpen && (
-//                         <Modal currentRecipe={currentRecipe} onClose={toggleModal} />
-//                     )}
-//                 </div>
-//             )
+    // return (
+        // <div>
+        // //      return (
+        // //     <div>
+        // //             {isModalOpen && (
+        // //                 <Modal currentRecipe={currentRecipe} onClose={toggleModal} />
+        // //             )}
+        // //         </div>
+        //     )
 //             <div className="flex-row">
 //                 {currentRecipes.map((image, i) => (
 //                     <img
@@ -636,7 +644,7 @@ export default RecipeList;
 //                     />    
 //                 ))}
 //             </div>
-//         </div>
+//         // </div>
 //     )
 // };
  

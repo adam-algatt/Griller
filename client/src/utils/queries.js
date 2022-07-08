@@ -11,3 +11,14 @@ export const QUERY_RECIPES = gql`
         }
     }
 `;
+
+export const QUERY_RECIPE_CATEGORY = gql`
+    query recipes($category: String) {
+        recipes(category: $category) {
+            title
+            image
+            link
+            category
+        }
+    }
+`;
