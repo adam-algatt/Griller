@@ -55,8 +55,7 @@ No testing required.
 
 ## Link 
 
-<a href="https://developers.google.com/maps/">Google Maps </a> <br />
-Google Places: https://developers.google.com/maps/documentation/javascript/places
+<a href="https://griller.herokuapp.com">Griller Live</a> <br />
 
 ## Questions
 
