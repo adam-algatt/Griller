@@ -23,3 +23,17 @@ export const ADD_USER = gql`
         }
     }
 `;
+
+export const SAVE_RECIPE = gql`
+    mutation saveRecipe($recipe: SavedRecipes) {
+        saveRecipe(recipe: $recipe) {
+            username
+            email
+            savedRecipes {
+                recipeId
+                title
+                category
+            }
+        }
+    }
+`;

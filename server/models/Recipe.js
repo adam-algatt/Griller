@@ -2,27 +2,18 @@ const { Schema, model } = require('mongoose');
 
 const recipeSchema = new Schema(
   {
-    name: {
+  category: {
       type: String,
-      required: true,
-      trim: true
     },
-    brand: {
+    title: {
       type: String,
-      required: true,
     },
-    // categories either a separate model or 
-    password: {
+    image: {
       type: String,
-      required: true,
-      minlength: 5
     },
-    rating: 
-      {
-        type: Number,
-        min: 1,
-        max: 5
-      },
+    link: {
+      type: String,
+    },
   },
   {
     toJSON: {
@@ -30,8 +21,7 @@ const recipeSchema = new Schema(
     }
   }
 );
-
-
-const Recipe = model('Recipe', recipeSchema);
+  
+const Recipe= model('Recipe', recipeSchema);
 
 module.exports = Recipe;

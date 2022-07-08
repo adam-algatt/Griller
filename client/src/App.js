@@ -3,10 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'; 
 
-import Header from './components/Header';
-import Home from './pages/Landing';
+import Nav from './components/Nav';
+//import Footer from './components/Footer';
+
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Recipes from './pages/Recipes';
+import SingleRecipe from './pages/SingleRecipe';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -33,27 +38,35 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className='flex-column justify-flex-start min-100-vh'>
-          <Header />
-            <div className='container'>
-              <Routes>
-                <Route
-                  path="/"
-                  element={<Home />}
-                />
-                <Route
-                  path="/login"
-                  element={<Login />}
-                />
-                <Route
-                  path="/signup"
-                  element={<Signup />}
-                />
-              </Routes>
-            </div>
+            <Nav />
+              <div className='container'>
+                <Routes>
+                  <Route
+                    path="/"
+                    element={<Home />}
+                  />  
+                  <Route
+                    path="/login"
+                    element={<Login />}
+                  />
+                  <Route
+                    path="/signup"
+                    element={<Signup />}
+                  />
+                  <Route 
+                    path="/recipes"
+                    element={<Recipes />}
+                  /> 
+                  {/* <Route
+                    path="/recipe/:category"
+                  element={<SingleRecipe />} 
+                />  */}
+                </Routes>
+            </div>  
         </div>    
       </Router>
     </ApolloProvider> 
-  )
+  );
 }
 
 export default App;
