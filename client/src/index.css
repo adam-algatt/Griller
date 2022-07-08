@@ -339,7 +339,7 @@ h1 {
 h1 span {
   display: inline-block;
   animation: animate 1s linear forwards;
-  background:url(/src/assests/fire2.gif);
+  background:url(/src/assets/fire2.gif);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip:text;
     
