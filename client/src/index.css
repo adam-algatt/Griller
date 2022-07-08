@@ -64,6 +64,37 @@ code {
   color: aliceblue;
 }
 
+.recipes {
+  background:url(./assets/brisket-ribs-chicken.jpg);
+  height: 500px;
+  width: 700px;
+  background-repeat: no-repeat;
+  font-size:xx-large;
+  font-weight:bolder
+}
+.gear {
+  background:url(./assets/grill.webp);
+  height: 500px;
+  width: 700px;
+  background-repeat: no-repeat;
+  font-size: xx-large;
+  font-weight:bolder;
+  background-size: cover;
+}
+.restaurants {
+  background:url(./assets/restaurant.jpg);
+  height: 500px;
+  width: 700px;
+  background-repeat: no-repeat;
+  font-size: xx-large;
+  font-weight:bolder;
+  padding: 100px;
+}
+.buttons {
+  align-content:space-around;
+  padding: 90px;
+}
+
 .title {
   background:url(./assets/fire2.gif);
   font-family: fantasy;
