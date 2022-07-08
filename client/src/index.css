@@ -305,9 +305,6 @@ button {
   50%,100% {
     bottom: 100%;
   }
-<<<<<<< HEAD
-}
-=======
 } 
 
 .body2 {
@@ -436,4 +433,3 @@ h1 span:nth-child(7) {
     height: 100%;
     margin: 0 auto -142px;
   }
->>>>>>> 839d961983a130aaa24a6ee5220887cf140cb719

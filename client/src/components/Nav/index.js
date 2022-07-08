@@ -13,17 +13,17 @@ function Nav() {
     <nav>
       <ul className='list'>
         <li>
-          <a href="#login" className='link'>
+          <a href="login" className='link'>
             Login
           </a>
         </li>
         <li>
-         <a href='#signup' className='link'>
+         <a href='signup' className='link'>
             Signup
          </a>
         </li>
         <li>
-            <a href='#recipes' className='link'>
+            <a href='recipes' className='link'>
                 Recipes
             </a>
         </li>
