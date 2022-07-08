@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
 
@@ -42,3 +43,40 @@ const Nav = () => {
 
 export default Nav;
 
+=======
+
+function Nav() {
+  
+
+  return (
+    <header className='header'>
+    <h2>
+      <a href="/" className='title'>
+        <span> Griller </span> 
+      </a>
+    </h2>
+    <nav>
+      <ul className='list'>
+        <li>
+          <a href="#login" className='link'>
+            Login
+          </a>
+        </li>
+        <li>
+         <a href='#signup' className='link'>
+            Signup
+         </a>
+        </li>
+        <li>
+            <a href='#recipes' className='link'>
+                Recipes
+            </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  );
+}
+
+export default Nav;
+>>>>>>> develop
