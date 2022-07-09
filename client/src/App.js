@@ -4,7 +4,8 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, } from '@a
 import { setContext } from '@apollo/client/link/context'; 
 
 import Nav from './components/Nav';
-import Home from './pages/Landing';
+import Landing from './pages/Landing';
+import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Recipes from './pages/Recipes';
@@ -41,8 +42,12 @@ function App() {
                 <Routes>
                   <Route
                     path="/"
-                    element={<Home />}
+                    element={<Landing />}
                   />  
+                  <Route 
+                    path="/home"
+                    element={<Home />}
+                  />
                   <Route
                     path="/login"
                     element={<Login />}

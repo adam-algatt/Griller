@@ -6,7 +6,7 @@ function Nav() {
   return (
     <header className='header'>
     <h2>
-      <a href="/" className='title'>
+      <a href="home" className='title'>
         <span> Griller </span> 
       </a>
     </h2>

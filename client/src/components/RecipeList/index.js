@@ -24,7 +24,7 @@ const RecipeList = ({ recipes }) => {
                                 
                                 <p className="mb-0">  
                                 Click here to get the recipe!
-                                <url src={recipe.link}></url>
+                                <link src={recipe.link}></link>
                                 </p>
                             </Link>
                         </div>   
