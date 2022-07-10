@@ -25,6 +25,9 @@ code {
   padding: 1em 1.5em;
   text-transform: uppercase;
   transition: .5s ease;
+  width: auto;
+  margin-left: 20%;
+  letter-spacing: 0.05em;
 }
 
 .link::before {
@@ -116,6 +119,7 @@ code {
   top: 0;
   border: 1px solid black;
   z-index: -1;
+ 
 }
 
 .login-box {
