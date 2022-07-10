@@ -106,7 +106,7 @@ code {
 
 
 
-header {
+ header {
   padding: 10px 20px;
   background-color: #36454f;
   display: flex;
@@ -325,12 +325,13 @@ section {
 h1 {
   margin: 0;
   padding: 0;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 100%;
   text-align: center;
   color: #fff;
-  font-size: 2em;
+  font-size: 10em;
   font-family: arial black;
   text-transform: uppercase;
   padding-top: 80px
