@@ -13,7 +13,7 @@ const Nav = () => {
   return (
     <header className='header'>
       <div className="container flex-row justify-space-between-lg justify-center align-center">
-          <Link to="/" className='title'>
+          <Link to="/home" className='title'>
             <span>Griller</span> 
            </Link>
 
@@ -21,7 +21,7 @@ const Nav = () => {
               <ul className='list'>
                   {Auth.loggedIn() ? (
                 <>
-                  <Link to="/profile" className="link">Me</Link>
+                  <Link to="/profile" className="link">Profile</Link>
                   <a href="/" className="link" onClick={logout}>
                     Logout
                   </a>

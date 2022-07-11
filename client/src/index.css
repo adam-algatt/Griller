@@ -349,6 +349,26 @@ h1 span {
     -webkit-background-clip:text;
     
 }
+h2 {
+
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 4em;
+  font-family: arial black;
+  text-transform: uppercase;
+  padding-top: 120px
+}
+h3 {
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 2em;
+  font-family: arial black;
+  text-transform: uppercase;
+}
 
 @keyframes animate {
   0%{

@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from  'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Auth from '../../utils/auth';
-import SingleRecipe from '../../pages/SingleRecipe';
 
-const RecipeList = ({ recipes }) => {
+
+const RecipeList = ({ recipes, title}) => {
 
     
     //if (!thoughts.length) {
@@ -15,7 +15,7 @@ const RecipeList = ({ recipes }) => {
 
     return (
         <div>
-            <h3>{}</h3>
+            <h3>{title}</h3>
             {recipes && recipes.map( recipe => (
                     <div key={recipe._id} className="card mb-3">
                         <div className="card-body">

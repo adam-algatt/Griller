@@ -1,20 +1,32 @@
 import React from "react";
+import { useParams } from 'react-router-dom';
 
-const singleRecipe = () => {
+import { useQuery } from '@apollo/client';
+import { QUERY_RECIPE } from '../utils/queries';
+
+const SingleRecipe = props => {
+    const { id: recipeId } = useParams();
+    const { loading, data } = useQuery(QUERY_RECIPE, {
+        variables: {id: recipeId }
+    });
+
+    const recipe = data?.singleRecipe || {};
+   
+    if (loading) {
+        return <div>Loading....</div>
+    }
+
     return (
-        <div className="container" >
-            <h2>Welcome to Griller</h2>
-            <h2>Your headquarters for all things related to the barbecue!</h2>
-            <div className='buttons'>
-                <button className="recipes">
-                    <a href="recipes">
-                    Recipes</a></button>
-                <button className="gear">Gear</button>
-                <button className="restaurants">Restaurants</button>
+        <div>
+            <div>
+                <h2>{recipe.title}</h2>
+                <img className="mb-0" src={recipe.image} alt={recipe.title}/>
+                {console.log(data)}
             </div>
-        </div>
+
+        </div>    
     );
 };
 
-export default singleRecipe;
+export default SingleRecipe;
 

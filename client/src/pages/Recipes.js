@@ -208,11 +208,11 @@ const Recipes = () => {
           </Form>
         </Container>
       <Container className="card">
-        <h2>
+        <h3>
           {searchedRecipes.length
             ? `Viewing ${searchedRecipes.length} results for ${searchInput}:`
             : 'Select a recipe category above to narrow your search!'}
-            </h2>
+            </h3>
             {loading ? (
               <div>Loading....</div>
             ) : (

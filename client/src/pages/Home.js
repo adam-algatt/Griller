@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div className="container" >
             <h2>Welcome to Griller</h2>
-            <h2>Your headquarters for all things related to the barbecue!</h2>
+            <h3>Your headquarters for all things related to the barbecue!</h3>
             <div className='buttons'>
                 <button className="recipes">
                     <a href="recipes">
