@@ -138,7 +138,7 @@ const Recipes = () => {
   return (
     <>
         <Container className="card">
-          <h1>Search for Recipes!</h1>
+          <h2>Search for Recipes!</h2>
           <Form onSubmit={handleFormSubmit} className="card">
               <Col xs={12} md={8}>
               <ToggleButtonGroup name="controlled-radio-buttons-group">

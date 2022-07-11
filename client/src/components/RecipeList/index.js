@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from  'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Auth from '../../utils/auth';
+import SingleRecipe from '../../pages/SingleRecipe';
 
 const RecipeList = ({ recipes }) => {
 
@@ -21,7 +22,6 @@ const RecipeList = ({ recipes }) => {
                             <Link to={`/recipe/${recipe._id}`}>
                                 <p>{recipe.title}</p>
                                 <img className="mb-0" src={recipe.image} alt={recipe.title}/>
-                                
                                 <p className="mb-0">  
                                 Click here to get the recipe!
                                 <link src={recipe.link}></link>

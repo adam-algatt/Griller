@@ -19,14 +19,17 @@ const resolvers = {
                 .select('-__v -password')
         },
         posts: async() => {
-            return Post.find()
+            return Post.find();
         },
         recipes: async() => {
-            return Recipe.find()
+            return Recipe.find();
         },
         recipeCategory: async( parent, { category } ) => {
-            return Recipe.find({ category })
-        } 
+            return Recipe.find({ category });
+        },
+        singleRecipe: async( parent, { _id } ) => {
+            return Recipe.findOne({ _id });
+        }
     },
 
 
