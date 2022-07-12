@@ -138,7 +138,7 @@ const Recipes = () => {
   return (
     <>
         <Container className="card">
-          <h1>Search for Recipes!</h1>
+          <h2>Search for Recipes!</h2>
           <Form onSubmit={handleFormSubmit} className="card">
               <Col xs={12} md={8}>
               <ToggleButtonGroup name="controlled-radio-buttons-group">
@@ -208,11 +208,11 @@ const Recipes = () => {
           </Form>
         </Container>
       <Container className="card">
-        <h2>
+        <h3>
           {searchedRecipes.length
             ? `Viewing ${searchedRecipes.length} results for ${searchInput}:`
             : 'Select a recipe category above to narrow your search!'}
-            </h2>
+            </h3>
             {loading ? (
               <div>Loading....</div>
             ) : (

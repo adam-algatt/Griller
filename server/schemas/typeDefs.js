@@ -33,6 +33,7 @@ const typeDefs = gql`
         posts: [Post]
         recipes: [Recipe]
         recipeCategory(category: String!): [Recipe]
+        singleRecipe(_id: ID!): Recipe
     }
 
     type Mutation {

@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Landing = () => {
     return (
-        <body className='body2'>
+        <div className='body2'>
             <section>
                 <h1 className='text'>
                     <span>G</span>
@@ -13,10 +14,14 @@ const Home = () => {
                     <span>E</span>
                     <span>R</span>
                 </h1>
-                <button className='button'>Enter</button>
-            </section>
-        </body>
+     
+                <button className='button'> 
+                    <a href="home">
+                    Enter</a>
+                </button>
+            </section>   
+        </div>
     );
 }
 
-export default Home;
+export default Landing;

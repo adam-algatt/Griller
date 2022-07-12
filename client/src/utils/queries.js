@@ -22,3 +22,14 @@ export const QUERY_RECIPE_CATEGORY = gql`
         }
     }
 `;
+
+export const QUERY_RECIPE = gql`
+    query singleRecipe($id: ID!) {
+        singleRecipe(_id: $id) {
+            _id
+            title
+            image
+            link
+        }
+    }   
+`;

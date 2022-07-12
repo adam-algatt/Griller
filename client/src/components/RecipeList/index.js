@@ -3,7 +3,8 @@ import { Link } from  'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 
-const RecipeList = ({ recipes }) => {
+
+const RecipeList = ({ recipes, title}) => {
 
     
     //if (!thoughts.length) {
@@ -14,17 +15,16 @@ const RecipeList = ({ recipes }) => {
 
     return (
         <div>
-            <h3>{}</h3>
+            <h3>{title}</h3>
             {recipes && recipes.map( recipe => (
                     <div key={recipe._id} className="card mb-3">
                         <div className="card-body">
                             <Link to={`/recipe/${recipe._id}`}>
                                 <p>{recipe.title}</p>
                                 <img className="mb-0" src={recipe.image} alt={recipe.title}/>
-                                
                                 <p className="mb-0">  
                                 Click here to get the recipe!
-                                <url src={recipe.link}></url>
+                                <link src={recipe.link}></link>
                                 </p>
                             </Link>
                         </div>   
