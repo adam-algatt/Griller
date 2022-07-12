@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Recipe, Post } = require('../models');
+const { User, RecipeComment, Recipe } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -17,9 +17,6 @@ const resolvers = {
         users: async() => {
             return User.find()
                 .select('-__v -password')
-        },
-        posts: async() => {
-            return Post.find();
         },
         recipes: async() => {
             return Recipe.find();
@@ -54,16 +51,16 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addPost: async (parent, args, context ) => {
+        addRecipeComment: async (parent, args, context) => {
             if (context.user) {
-                const post = await Post.create({ ...args, username: context.user.username });
+                const recipeComment = await RecipeComment.create({ ...args, username: context.user.username});
 
                 await User.findByIdAndUpdate(
                     { _id: context.user._id},
-                    { $push: { posts: post._id} },
+                    { $addToSet: { recipeComment: RecipeComment._id} },
                     { new: true }
                 )
-                return post;
+                return recipeComment;
             }
             throw new AuthenticationError('You must be logged in!');
         },

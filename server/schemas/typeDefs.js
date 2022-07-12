@@ -14,12 +14,15 @@ const typeDefs = gql`
         title: String
         link: String
         image: String
+        comments: [RecipeComment]
     }
 
-    type Post {
-        _id: ID
-        postTitle: String
+    type RecipeComment {
+        _id: ID!
+        commentTitle: String!
+        commentText: String
         username: String
+        createdAt: String
     }
 
     type Auth {
@@ -30,7 +33,6 @@ const typeDefs = gql`
     type Query {
         me: User
         users: [User]
-        posts: [Post]
         recipes: [Recipe]
         recipeCategory(category: String!): [Recipe]
         singleRecipe(_id: ID!): Recipe
@@ -39,8 +41,8 @@ const typeDefs = gql`
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addPost(postTitle: String!): Post
         addRecipe(category: String!, title: String!, image: String!, link: String!): Recipe
+        addRecipeComment(commentTitle: String!, username: String!, commentText: String): [RecipeComment]
     }
 `;
 

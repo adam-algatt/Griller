@@ -51,26 +51,27 @@ import RecipeList from '../components/RecipeList';
 //import { saveRecipe } from '../utils/scraper';
 //import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
 // import { useMutation } from '@apollo/client';
-import { QUERY_RECIPES } from '../utils/queries';
+import { QUERY_RECIPES, QUERY_BY_CATEGORY } from '../utils/queries';
 
+// Query all recipes on load
 const Recipes = () => {
-  const { loading, data } = useQuery(QUERY_RECIPES);
-  const recipes = data?.recipes || []   
-  
   
   // create state for holding returned google api data
   const [searchedRecipes, setSearchedRecipes] = useState([]);
   // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
 
-   // create state to hold saved recipeId values
-    // const [savedRecipesIds, setSavedRecipesIds] = useState(getSavedRecipeIds());
 
-    // const [saveRecipe, { error }] = useMutation(SAVE_RECIPE);
+  const { loading, data } = useQuery(QUERY_RECIPES);
+  const recipes = data?.recipes || [] 
+  // create state to hold saved recipeId values
+  // const [savedRecipesIds, setSavedRecipesIds] = useState(getSavedRecipeIds());
 
-   // set up useEffect hook to save `savedRecipesIds` list to localStorage on component unmount
-   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
-  //   useEffect(() => {
+  // const [saveRecipe, { error }] = useMutation(SAVE_RECIPE);
+
+  // set up useEffect hook to save `savedRecipesIds` list to localStorage on component unmount
+  // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
+  //  useEffect(() => {
   //    return () => QUERY_RECIPES;
   //  });
 

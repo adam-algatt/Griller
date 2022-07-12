@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -8,8 +8,8 @@ const Home = () => {
             <h3>Your headquarters for all things related to the barbecue!</h3>
             <div className='buttons'>
                 <button className="recipes">
-                    <a href="recipes">
-                    Recipes</a></button>
+                    <Link to="/recipes" className="link">Recipes</Link>
+                </button>
                 <button className="gear">Gear</button>
                 <button className="restaurants">Restaurants</button>
             </div>
