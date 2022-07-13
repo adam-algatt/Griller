@@ -14,15 +14,16 @@ const typeDefs = gql`
         title: String
         link: String
         image: String
-        comments: [RecipeComment]
+        recipeComment: [RecipeComment]
     }
 
     type RecipeComment {
         _id: ID!
-        commentTitle: String!
+        commentTitle: String
         commentText: String
-        username: String
         createdAt: String
+        username: String
+        recipeId: Recipe
     }
 
     type Auth {
@@ -42,7 +43,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addRecipe(category: String!, title: String!, image: String!, link: String!): Recipe
-        addRecipeComment(commentTitle: String!, username: String!, commentText: String): [RecipeComment]
+        addRecipeComment(commentTitle: String!, commentText: String!, username: String!, recipeId: ID! ): RecipeComment
     }
 `;
 

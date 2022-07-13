@@ -5,36 +5,36 @@ const recipeCommentSchema = new Schema(
     {
         commentTitle: {
             type: String,
-            required: true,
+            required: 'Your comment must have a title',
+            minlength: 1,
             maxlength: 40
-
         },
         commentText: {
             type: String,
-            required: true,
+            required: 'Your must leave a comment!',
+            minlength: 1,
             maxlength: 280
-        },
-        username: {
-            type: String,
-            required: true
         },
         createdAt: {
             type: Date,
             default: Date.now,
             get: timestamp => dateFormat(timestamp)
         },
-        recipe: {
+        username: {
+            type: String,
+            required: true
+        },
+        recipeId: {
             type: Schema.Types.ObjectId,
             ref: 'Recipe'
-            }
+        }
     },
     {
-            toJSON: {
-              virtuals: true
-            }
+        toJSON: {
+            virtuals: true
+        }
     }
 );
-
 
 const RecipeComment = model('RecipeComment', recipeCommentSchema);
 

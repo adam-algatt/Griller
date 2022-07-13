@@ -14,7 +14,7 @@ const recipeSchema = new Schema(
     link: {
       type: String,
     },
-    comments: [{
+    recipeComment: [{
       type: Schema.Types.ObjectId,
       ref: 'RecipeComment'
     }]
