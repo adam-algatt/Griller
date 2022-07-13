@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 
+import RecipeComment from '../components/RecipeComment';
 import { useQuery } from '@apollo/client';
 import { QUERY_RECIPE } from '../utils/queries';
 
@@ -11,7 +12,7 @@ const SingleRecipe = props => {
     });
 
     const recipe = data?.singleRecipe || {};
-   
+    
     if (loading) {
         return <div>Loading....</div>
     }
@@ -22,6 +23,9 @@ const SingleRecipe = props => {
                 <h2>{recipe.title}</h2>
                 <img className="mb-0" src={recipe.image} alt={recipe.title}/>
                 {console.log(data)}
+            </div>
+            <div>
+                <RecipeComment recipeComments={recipe.recipeComment} />
             </div>
 
         </div>    

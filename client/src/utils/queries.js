@@ -30,6 +30,13 @@ export const QUERY_RECIPE = gql`
             title
             image
             link
+            recipeComment {
+                _id
+                commentTitle
+                commentText
+                createdAt
+                username
+            }
         }
     }   
 `;

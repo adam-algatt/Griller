@@ -369,6 +369,15 @@ h3 {
   font-family: arial black;
   text-transform: uppercase;
 }
+h4 {
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 1em;
+  font-family: arial black;
+  text-transform: uppercase;
+}
 
 @keyframes animate {
   0%{

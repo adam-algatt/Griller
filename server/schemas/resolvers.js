@@ -16,13 +16,15 @@ const resolvers = {
         },
         users: async() => {
             return User.find()
-                .select('-__v -password')
+                .select('-__v -password');
         },
         recipes: async() => {
-            return Recipe.find();
+            return Recipe.find()
+                .populate('recipeComment');
         },
         recipeCategory: async( parent, { category } ) => {
-            return Recipe.find({ category });
+            return Recipe.find({ category })
+                .populate('receipeComment');
         },
         singleRecipe: async( parent, { _id } ) => {
             return Recipe.findOne({ _id })
