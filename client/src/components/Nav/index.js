@@ -11,14 +11,12 @@ const Nav = () => {
 
 
   return (
-    <header className='header'>
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
+    <header>
+      <nav>
           <Link to="/home" className='title'>
             <span>Griller</span> 
            </Link>
-
-            <nav className="text-center"> 
-              <ul className='list'>
+              <ul>
                   {Auth.loggedIn() ? (
                 <>
                   <Link to="/profile" className="link">Profile</Link>
@@ -35,7 +33,6 @@ const Nav = () => {
                   <Link to="/recipes" className='link'>Recipes</Link>
               </ul>
           </nav>
-       </div> 
   </header>
   );
 };
