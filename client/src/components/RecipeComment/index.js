@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const RecipeComment = ({ recipeComments }) => {
     return (
@@ -10,10 +10,12 @@ const RecipeComment = ({ recipeComments }) => {
             <div className="card-body">
                 {recipeComments && 
                     recipeComments.map(recipeComment => (
-                        <p className="pill mb-3" key={recipeComment._id}>
+                        <div className="pill mb-3" key={recipeComment._id}>
                             <h3>Title: {recipeComment.commentTitle}</h3>
                             <h4>Comment: {recipeComment.commentText}</h4>
-                        </p>
+                            <h4>Posted By:  {recipeComment.username}</h4>
+                            <h4>Posted On:  {recipeComment.createdAt}</h4>
+                        </div>
                     )
                 )}
         </div>

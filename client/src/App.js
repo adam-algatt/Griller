@@ -4,12 +4,14 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, } from '@a
 import { setContext } from '@apollo/client/link/context'; 
 
 import Nav from './components/Nav';
+
 import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Recipes from './pages/Recipes';
 import SingleRecipe from './pages/SingleRecipe';
+import Profile from './pages/Profile';
 
 
 const httpLink = createHttpLink({
@@ -62,8 +64,13 @@ function App() {
                   /> 
                   <Route
                     path="/recipe/:id"
-                    element={<SingleRecipe />} 
-                /> 
+                    element={<SingleRecipe />}
+                  /> 
+                  <Route
+                    path="/profile">
+                      <Route path=":username" element={<Profile />} />
+                      <Route path="/profile" element={<Profile />} />
+                    </Route>  
                 </Routes>
             </div>  
         </div>    

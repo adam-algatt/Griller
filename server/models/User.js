@@ -21,18 +21,18 @@ const userSchema = new Schema(
       minlength: 5
     },
 
-    comments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'RecipeComment'
-      }
-    ],
-    friends: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-      }
-    ]
+    // comments: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'RecipeComment'
+    //   }
+    // ],
+    // friends: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User'
+    //   }
+    // ]
   },
   {
     toJSON: {
