@@ -23,11 +23,15 @@ const resolvers = {
         },
         recipeCategory: async( parent, { category } ) => {
             return Recipe.find({ category })
-                .populate('receipeComment');
+                .populate('recipeComment');
         },
         singleRecipe: async( parent, { _id } ) => {
             return Recipe.findOne({ _id })
                 .populate('recipeComment');
+        },
+        recipeCommentUser: async( parent, { username }) => {
+            return RecipeComment.find({ username })
+                .populate('recipe');
         }
     },
 

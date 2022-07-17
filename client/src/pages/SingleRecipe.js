@@ -27,7 +27,12 @@ const SingleRecipe = props => {
     return (
         <div className="flex-row justify-space-between mb-3">
             <div className="col-12 mb-3 col-lg-8">
-                <h2>{recipe.title}</h2>
+                <h2 className="singleRecipeTitle">{recipe.title}</h2>
+                    <a href={recipe.link} alt="link to recipe" target="_blank">
+                        <p className="mb-0"> 
+                            Click here to get the recipe!
+                        </p>
+                    </a>
                 <img className="mb-0" src={recipe.image} alt={recipe.title}/>
             </div>
             <div>

@@ -21,12 +21,12 @@ const userSchema = new Schema(
       minlength: 5
     },
 
-    // comments: [
-    //   {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'RecipeComment'
-    //   }
-    // ],
+    recipeComments: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'RecipeComment'
+      }
+    ],
     // friends: [
     //   {
     //     type: Schema.Types.ObjectId,

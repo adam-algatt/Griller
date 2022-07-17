@@ -13,7 +13,7 @@ code {
     monospace;
 }
 
-.link {
+a.link {
   display: inline-block;
   margin-block: 2px;
   text-decoration: none;
@@ -26,11 +26,11 @@ code {
   text-transform: uppercase;
   transition: .5s ease;
   width: auto;
-  margin-left: 20%;
+  margin-left: 5%;
   letter-spacing: 0.05em;
 }
 
-.link::before {
+a.link::before {
   content: '';
   position: absolute;
   left: 0;
@@ -41,16 +41,16 @@ code {
   transition: .5s ease;
 }
 
-.link:hover {
+a.link:hover {
   color: #1e1e2b;
   transition-delay: .5s;
 }
 
-.link:hover::before {
+a.link:hover::before {
   width: 100%;
 }
 
-.link::after {
+a.link::after {
   content: '';
   position: absolute;
   left: 0;
@@ -105,6 +105,7 @@ code {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   font-size: 100px;
+  float: left;
  }
 
  header {
@@ -331,7 +332,9 @@ section {
   overflow: hidden;
 }
 
-
+.singleRecipeTitle {
+  margin: 0px
+}
 
 h1 {
   margin: 0;
@@ -356,8 +359,8 @@ h1 span {
     -webkit-background-clip:text;
     
 }
-h2 {
 
+h2 {
   transform: translateY(-50%);
   width: 100%;
   text-align: center;
@@ -367,6 +370,7 @@ h2 {
   text-transform: uppercase;
   padding-top: 120px
 }
+
 h3 {
   transform: translateY(-50%);
   width: 100%;
@@ -483,3 +487,14 @@ h1 span:nth-child(7) {
     border-radius: 4px;
     transition: box-shadow 0.2s;
   }
+
+  nav ul {
+    margin: 0;
+    position:relative;
+  }
+  
+  nav {
+    clear: both;
+    width: 100%;
+    text-align: right;
+    }

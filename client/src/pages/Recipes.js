@@ -47,8 +47,6 @@ import { Container, Col, Form, Button, Card, ToggleButtonGroup } from 'react-boo
 import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import RecipeList from '../components/RecipeList'; 
-//import { searchWeber } from '../utils/API';
-//import { saveRecipe } from '../utils/scraper';
 //import { saveRecipeIds, getSavedRecipeIds } from '../utils/localStorage';
 // import { useMutation } from '@apollo/client';
 import { QUERY_RECIPES, QUERY_BY_CATEGORY } from '../utils/queries';
