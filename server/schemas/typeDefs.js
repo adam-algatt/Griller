@@ -2,10 +2,11 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
     type User {
-        _id: ID
+        _id: ID!
         username: String
         email: String
         savedRecipes: [Recipe]
+        recipeComments: [RecipeComment]
     }
 
     type Recipe {
@@ -14,12 +15,16 @@ const typeDefs = gql`
         title: String
         link: String
         image: String
+        recipeComment: [RecipeComment]
     }
 
-    type Post {
-        _id: ID
-        postTitle: String
+    type RecipeComment {
+        _id: ID!
+        commentTitle: String
+        commentText: String
+        createdAt: String
         username: String
+        recipeId: Recipe
     }
 
     type Auth {
@@ -30,17 +35,17 @@ const typeDefs = gql`
     type Query {
         me: User
         users: [User]
-        posts: [Post]
         recipes: [Recipe]
         recipeCategory(category: String!): [Recipe]
         singleRecipe(_id: ID!): Recipe
+        recipeCommentUser(username: String!): [RecipeComment]
     }
 
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addPost(postTitle: String!): Post
         addRecipe(category: String!, title: String!, image: String!, link: String!): Recipe
+        addRecipeComment(commentTitle: String!, commentText: String!, username: String!, recipeId: ID! ): RecipeComment
     }
 `;
 

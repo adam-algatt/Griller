@@ -24,6 +24,18 @@ export const ADD_USER = gql`
     }
 `;
 
+export const ADD_RECIPE_COMMENT = gql`
+    mutation addRecipeComment($commentTitle: String!, $commentText: String!, $recipeId: ID!, $username: String!) {
+        addRecipeComment(commentTitle: $commentTitle, commentText: $commentText, recipeId: $recipeId, username: $username) {
+            commentTitle
+            commentText
+            username
+            recipeId{
+                _id
+            }
+        }
+    }  
+`
 export const SAVE_RECIPE = gql`
     mutation saveRecipe($recipe: SavedRecipes) {
         saveRecipe(recipe: $recipe) {

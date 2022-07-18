@@ -1,37 +1,39 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Recipe, Post } = require('../models');
+const { User, Recipe, RecipeComment } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        me: async( parent, args, context ) => {
+        me: async ( parent, args, context ) => {
             if (context.user) {
-                const UserData = await User.findOne({ _id: context.user._id })
-                    .select('-__v - password')
-                    .populats('posts')
+                const userData = await User.findOne({ _id: context.user._id })
+                    .select('-__v -password');
 
-                return UserData;
+                return userData;
             }
             throw new AuthenticationError('Not logged in');
         },
         users: async() => {
             return User.find()
-                .select('-__v -password')
-        },
-        posts: async() => {
-            return Post.find();
+                .select('-__v -password');
         },
         recipes: async() => {
-            return Recipe.find();
+            return Recipe.find()
+                .populate('recipeComment');
         },
         recipeCategory: async( parent, { category } ) => {
-            return Recipe.find({ category });
+            return Recipe.find({ category })
+                .populate('recipeComment');
         },
         singleRecipe: async( parent, { _id } ) => {
-            return Recipe.findOne({ _id });
+            return Recipe.findOne({ _id })
+                .populate('recipeComment');
+        },
+        recipeCommentUser: async( parent, { username }) => {
+            return RecipeComment.find({ username })
+                .populate('recipe');
         }
     },
-
 
     Mutation: {
         addUser: async (parent, args) => {
@@ -54,23 +56,23 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        addPost: async (parent, args, context ) => {
-            if (context.user) {
-                const post = await Post.create({ ...args, username: context.user.username });
-
-                await User.findByIdAndUpdate(
-                    { _id: context.user._id},
-                    { $push: { posts: post._id} },
-                    { new: true }
-                )
-                return post;
-            }
-            throw new AuthenticationError('You must be logged in!');
-        },
         addRecipe: async (parent, args ) => {
             const recipe = await Recipe.create(args);
 
             return recipe;
+        },
+        addRecipeComment: async ( parent, { recipeId, commentTitle, commentText }, context ) => {
+            if (context.user) {
+                const recipeComment = await RecipeComment.create({ recipeId, commentTitle, commentText, username: context.user.username});
+
+                await Recipe.findByIdAndUpdate(
+                    { _id: recipeId},
+                    { $push: { recipeComment: [recipeComment._id]}},
+                    { new: true }
+                );
+                return recipeComment;
+            }
+            throw new AuthenticationError('You need to be logged in to leave a comment!')
         },
         // saveRecipe: async ( parent, { recipe }, context) => {
         //     if(context.user) {

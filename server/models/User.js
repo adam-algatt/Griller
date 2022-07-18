@@ -20,24 +20,19 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
-    posts: [
+
+    recipeComments: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Post'
+        ref: 'RecipeComment'
       }
     ],
-    comments: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Comment'
-      }
-    ],
-    friends: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-      }
-    ]
+    // friends: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'User'
+    //   }
+    // ]
   },
   {
     toJSON: {

@@ -1,5 +1,25 @@
 import { gql } from '@apollo/client';
 
+export const QUERY_ME = gql`
+    {
+        me {
+            _id
+            username
+            email
+        }
+    }
+`;
+
+export const QUERY_USER = gql`
+    query user($username: String!) {
+        user(username: $username) {
+            _id
+            username
+            email
+        }
+    }    
+`;
+
 export const QUERY_RECIPES = gql`
     query recipes {
         recipes {
@@ -12,9 +32,9 @@ export const QUERY_RECIPES = gql`
     }
 `;
 
-export const QUERY_RECIPE_CATEGORY = gql`
-    query recipes($category: String) {
-        recipes(category: $category) {
+export const QUERY_BY_CATEGORY = gql`
+    query recipeCategory($category: String) {
+        recipeCategory(category: $category) {
             title
             image
             link
@@ -30,6 +50,13 @@ export const QUERY_RECIPE = gql`
             title
             image
             link
+            recipeComment {
+                _id
+                commentTitle
+                commentText
+                createdAt
+                username
+            }
         }
     }   
 `;

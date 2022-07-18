@@ -14,6 +14,10 @@ const recipeSchema = new Schema(
     link: {
       type: String,
     },
+    recipeComment: [{
+      type: Schema.Types.ObjectId,
+      ref: 'RecipeComment'
+    }]
   },
   {
     toJSON: {

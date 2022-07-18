@@ -11,11 +11,12 @@ const Nav = () => {
 
 
   return (
-    <header>
-      <nav>
-          <Link to="/home" className='title'>
-            <span>Griller</span> 
-           </Link>
+    <header className='header'>
+          <nav> 
+
+            <Link to="/home" className='title'>
+              <span>Griller</span> 
+            </Link>
               <ul>
                   {Auth.loggedIn() ? (
                 <>
