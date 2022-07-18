@@ -16,6 +16,9 @@ export const QUERY_USER = gql`
             _id
             username
             email
+            savedRecipe {
+                recipeId
+            }
         }
     }    
 `;
@@ -33,7 +36,7 @@ export const QUERY_RECIPES = gql`
 `;
 
 export const QUERY_BY_CATEGORY = gql`
-    query recipeCategory($category: String) {
+    query recipeCategory($category: String!) {
         recipeCategory(category: $category) {
             title
             image

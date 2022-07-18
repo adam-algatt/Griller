@@ -5,8 +5,7 @@ const typeDefs = gql`
         _id: ID!
         username: String
         email: String
-        savedRecipes: [Recipe]
-        recipeComments: [RecipeComment]
+        savedRecipe: [Recipe]
     }
 
     type Recipe {
@@ -46,6 +45,7 @@ const typeDefs = gql`
         addUser(username: String!, email: String!, password: String!): Auth
         addRecipe(category: String!, title: String!, image: String!, link: String!): Recipe
         addRecipeComment(commentTitle: String!, commentText: String!, username: String!, recipeId: ID! ): RecipeComment
+        saveRecipe(recipeId: ID!): User
     }
 `;
 

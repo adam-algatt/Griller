@@ -108,6 +108,10 @@ a.link::after {
   float: left;
  }
 
+ .recipe_image {
+  height: 500px;
+  width: 650px
+ }
  header {
   padding: 10px 20px;
   background-color: #36454f;
@@ -348,7 +352,7 @@ h1 {
   font-size: 10em;
   font-family: arial black;
   text-transform: uppercase;
-  padding-top: 80px
+  padding-top: 120px
 }
 
 h1 span {
@@ -496,5 +500,6 @@ h1 span:nth-child(7) {
   nav {
     clear: both;
     width: 100%;
+    height: 180px;
     text-align: right;
     }

@@ -15,7 +15,8 @@ const resolvers = {
         },
         users: async() => {
             return User.find()
-                .select('-__v -password');
+                .select('-__v -password')
+                .populate('savedRecipe');
         },
         recipes: async() => {
             return Recipe.find()
@@ -25,7 +26,7 @@ const resolvers = {
             return Recipe.find({ category })
                 .populate('recipeComment');
         },
-        singleRecipe: async( parent, { _id } ) => {
+        singleRecipe: async( parent, { _id} ) => {
             return Recipe.findOne({ _id })
                 .populate('recipeComment');
         },
@@ -70,21 +71,22 @@ const resolvers = {
                     { $push: { recipeComment: [recipeComment._id]}},
                     { new: true }
                 );
-                return recipeComment;
+                return recipeComment
+                    .populate('recipe');
             }
             throw new AuthenticationError('You need to be logged in to leave a comment!')
         },
-        // saveRecipe: async ( parent, { recipe }, context) => {
-        //     if(context.user) {
-        //         const updatedUser = await User.findByIdAndUpdate(
-        //             { _id: context.user._id },
-        //             { $addtoSet: { savedRecipes: recipe }},
-        //             { new: true }
-        //         )
-        //         return updatedUser
-        //         }
-            //throw new AuthenticationError('Please login')
-        // }
+        saveRecipe: async ( parent, { recipeId }, context) => {
+            if(context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $push: { savedRecipe: recipeId }},
+                    { new: true }
+                )
+                return updatedUser
+                }
+            throw new AuthenticationError('Please login')
+        }
     }
 };
 
