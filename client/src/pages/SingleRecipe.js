@@ -12,7 +12,7 @@ import Auth from '../utils/auth';
 const SingleRecipe = props => {
     const { id: _id } = useParams();
     // const { data: userData} = useQuery(QUERY_ME);
-    console.log(_id)
+
 
     const { loading, data } = useQuery(QUERY_RECIPE, {
         variables: { _id: _id }
@@ -45,7 +45,7 @@ const SingleRecipe = props => {
                 />}
             </div>
             <div className="col-12 mb-3 col-lg-8">
-                    <RecipeComment recipeComments={recipe.recipeComment} />
+                    <RecipeComment recipeComment={recipe.recipeComment} />
             </div>
         </div>    
     );

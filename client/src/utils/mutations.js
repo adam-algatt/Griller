@@ -25,13 +25,13 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_RECIPE_COMMENT = gql`
-    mutation addRecipeComment($commentTitle: String!, $commentText: String!, $recipeId: ID!, $username: String!) {
-        addRecipeComment(commentTitle: $commentTitle, commentText: $commentText, recipeId: $recipeId, username: $username) {
+    mutation addRecipeComment($commentTitle: String!, $commentText: String!, $recipeId: ID!) {
+        addRecipeComment(commentTitle: $commentTitle, commentText: $commentText, recipeId: $recipeId) {
             commentTitle
             commentText
             username
             recipeId {
-                _id
+               _id
             }
         }
     }  

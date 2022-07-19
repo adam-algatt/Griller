@@ -35,7 +35,7 @@ const SaveRecipe = ({ recipeId })  => {
                 // disabled={savedRecipesIds?.some((savedRecipeId) => savedRecipeId === recipe._id)}
                 className='btn-block btn-info'
                 onClick={handleClick}>
-                {console.log(recipeId)}
+                    
                 {/* {savedRecipesIds?.some((savedRecipeId) => savedRecipeId === recipe._id) */}
                 {/* ? 'This recipe has already been saved!'
                 : 'Save this Recipe!'} */}

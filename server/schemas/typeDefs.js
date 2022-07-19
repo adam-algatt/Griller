@@ -44,7 +44,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addRecipe(category: String!, title: String!, image: String!, link: String!): Recipe
-        addRecipeComment(commentTitle: String!, commentText: String!, username: String!, recipeId: ID! ): RecipeComment
+        addRecipeComment(commentTitle: String!, commentText: String!, recipeId: ID! ): RecipeComment
         saveRecipe(_id: ID!): User
     }
 `;

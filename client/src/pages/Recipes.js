@@ -18,11 +18,6 @@ const Recipes = () => {
   const recipes = data?.recipes || [] 
 
 
-  // // create state to hold saved recipeId values
-  // const [savedRecipesIds, setSavedRecipesIds] = useState(getSavedRecipeIds());
-
-  // const [saveRecipe, { error }] = useMutation(SAVE_RECIPE);
-
   // // set up useEffect hook to save `savedRecipesIds` list to localStorage on component unmount
   // // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   //  useEffect(() => {

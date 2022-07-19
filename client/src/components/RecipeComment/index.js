@@ -1,15 +1,15 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 
-const RecipeComment = ({ recipeComments }) => {
+const RecipeComment = ({ recipeComment }) => {
     return (
         <div className="card mb-3">
             <div className="card-header">
                 <h3 className="text-light">Comments</h3>
             </div>
             <div className="card-body">
-                {recipeComments && 
-                    recipeComments.map(recipeComment => (
+                {recipeComment && 
+                    recipeComment.map(recipeComment => (
                         <div className="pill mb-3" key={recipeComment._id}>
                             <h3>Title: {recipeComment.commentTitle}</h3>
                             <h4>Comment: {recipeComment.commentText}</h4>
