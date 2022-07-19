@@ -112,6 +112,7 @@ a.link::after {
   height: 500px;
   width: 650px
  }
+
  header {
   padding: 10px 20px;
   background-color: #36454f;
@@ -227,7 +228,6 @@ button {
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
-  overflow: hidden;
   transition: .5s;
   margin-top: 10px;
   margin-bottom: 10px;

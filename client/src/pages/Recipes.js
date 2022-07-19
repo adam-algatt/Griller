@@ -50,7 +50,7 @@ const Recipes = () => {
       }
 
       const { recipes } = await response.json();
-
+      console.log(recipes)
       const recipeData = recipes.map((recipe) => ({
         _id: recipe.id,
         searchInput: recipe.category
@@ -63,35 +63,6 @@ const Recipes = () => {
   //     console.error(err);
     }
   };
-
-  // create function to handle saving a recipe to our database
-  // const handleSaveRecipe = async (recipeId) => {
-  //   // find the recipe in `searchedRecipes` state by the matching id
-  //   const recipeToSave = searchedRecipes.find((recipe) => recipe.recipeId === recipeId);
-
-  //   // get token
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-  //   if (!token) {
-  //     return false;
-  //   }
-
-  //   try {
-  //     const response = await saveRecipe(recipeToSave, token);
-  //     const { data } = await saveRecipeIds({
-  //       variables: { newRecipe: { ...recipeToSave } },
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error('something went wrong!');
-  //     }
-
-  //     // if recipe successfully saves to user's account, save recipe id to state
-  //     setSavedRecipesIds([...savedRecipesIds, recipeToSave.recipeId]);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
 
   return (
     <>

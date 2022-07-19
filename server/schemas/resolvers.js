@@ -26,7 +26,7 @@ const resolvers = {
             return Recipe.find({ category })
                 .populate('recipeComment');
         },
-        singleRecipe: async( parent, { _id} ) => {
+        singleRecipe: async( parent, { _id } ) => {
             return Recipe.findOne({ _id })
                 .populate('recipeComment');
         },
@@ -76,13 +76,14 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in to leave a comment!')
         },
-        saveRecipe: async ( parent, { recipeId }, context) => {
+        saveRecipe: async ( parent, { _id }, context) => {
             if(context.user) {
-                const updatedUser = await User.findByIdAndUpdate(
+                const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $push: { savedRecipe: recipeId }},
+                    { $addToSet: { savedRecipes: [_id]}},
                     { new: true }
-                )
+                ).populate('savedRecipes');
+                
                 return updatedUser
                 }
             throw new AuthenticationError('Please login')

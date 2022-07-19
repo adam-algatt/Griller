@@ -30,22 +30,20 @@ export const ADD_RECIPE_COMMENT = gql`
             commentTitle
             commentText
             username
-            recipeId{
+            recipeId {
                 _id
             }
         }
     }  
 `
 export const SAVE_RECIPE = gql`
-    mutation saveRecipe($recipeId: SavedRecipe!) {
-        saveRecipe(recipeId: $recipeId) {
+    mutation saveRecipe($_id: ID!) {
+        saveRecipe(_id: $_id) {
             username
             email
-            savedRecipe {
-                recipeId
+            savedRecipes {
+                _id
                 title
-                category
-                image
             }
         }
     }
