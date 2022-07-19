@@ -17,9 +17,9 @@ a.link {
   display: inline-block;
   margin-block: 2px;
   text-decoration: none;
-  color: #c2c2c2;
+  color: #ffffff;
   position: relative;
-  text-shadow: 0 0 10px rgba(88, 87, 87, 0.5);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   background: transparent;
   border: none;
   padding: 5px 15px;
@@ -42,7 +42,7 @@ a.link::before {
 }
 
 a.link:hover {
-  color: #1e1e2b;
+  color: #080808;
   transition-delay: .5s;
 }
 
@@ -74,7 +74,9 @@ a.link:hover::after {
   width: 700px;
   background-repeat: no-repeat;
   font-size:xx-large;
-  font-weight:bolder
+  font-weight:bolder;
+  flex: 33.33%;
+  padding: 5px;
 }
 .gear {
   background:url(./assets/grill.webp);
@@ -84,6 +86,8 @@ a.link:hover::after {
   font-size: xx-large;
   font-weight:bolder;
   background-size: cover;
+  flex: 33.33%;
+  padding: 5px;
 }
 .restaurants {
   background:url(./assets/restaurant.jpg);
@@ -92,11 +96,11 @@ a.link:hover::after {
   background-repeat: no-repeat;
   font-size: xx-large;
   font-weight:bolder;
-  padding: 100px;
+  padding: 5px;
+  flex: 33.33%;
 }
 .buttons {
-  align-content:space-around;
-  padding: 90px;
+  display: flex;
 }
 
 .title {
@@ -248,14 +252,109 @@ button {
   animation-delay: .25s
 }
 
-.card {
-  align-items: center;
-  padding-left: 50px;
-  padding-right: 0px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+.search {
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  background: rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+  border-radius: 10px;
+  text-align: left;
+  
+
+}
+
+.form-check {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.form-center {
+  width: 400px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.btn2 {
+  position: relative;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 1.5rem;
+  background: #16b081;
+  color: #ffffff;
+  transition: all 0.3s;
+}
+
+.btn2:hover {
+  background: transparent;
+  letter-spacing: 2px;
+}
+
+.btn2::before { top: 0;}
+.btn2::after { bottom: 0;}
+
+.btn2:hover::before, 
+.btn2:hover::after {
+  transform: scaleX(1);
+}
+
+.btn2::before, 
+.btn2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transform: scaleX(0);
+  width: 100%;
+  height: 0.5px;
+  background: white;
+  transition: all 0.3s;
+}
+
+
+.card.container {
+  text-align: center;
   font-weight: bolder;
   font-size: larger;
+}
+
+.wrapper2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+  minmax(12rem, 20rem));
+  gap: 1rem;
+  justify-content: center;
+}
+
+.card2 {
+  overflow: hidden;
+  box-shadow: 0 2px 4px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  color: #fff;
+  
+}
+
+.card-title {
+  padding: .5rem;
+  font-weight: bolder;
+  font-size: 17px;
+  text-transform:uppercase;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.small {
+  padding: .5rem;
+}
+
+.card-img2 {
+  height: 12rem;
+  width: 100%;
+  object-fit: cover;
 }
 
 .pill {
@@ -367,7 +466,7 @@ h2 {
   font-size: 4em;
   font-family: arial black;
   text-transform: uppercase;
-  padding-top: 120px
+  text-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
 h3 {
@@ -378,7 +477,9 @@ h3 {
   font-size: 2em;
   font-family: arial black;
   text-transform: uppercase;
+  text-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
+
 h4 {
   transform: translateY(-50%);
   width: 100%;
@@ -387,6 +488,17 @@ h4 {
   font-size: 1em;
   font-family: arial black;
   text-transform: uppercase;
+}
+
+h5 {
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 2em;
+  font-family: arial black;
+  text-transform: uppercase;
+  text-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes animate {

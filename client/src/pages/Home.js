@@ -10,8 +10,12 @@ const Home = () => {
                 <button className="recipes">
                     <Link to="/recipes" className="link">Recipes</Link>
                 </button>
-                <button className="gear">Gear</button>
-                <button className="restaurants">Restaurants</button>
+                <button className="gear">
+                    <Link to='/gear' className="link">Gear</Link>
+                </button>
+                <button className="restaurants">
+                    <Link to='/restaurants' className="link">Restaurants</Link>
+                    </button>
             </div>
         </div>
     );
