@@ -19,34 +19,6 @@ const SingleRecipe = props => {
     });
 
     const recipe = data?.singleRecipe || {};
-    
-    // {
-    //         // find the recipe in `searchedRecipes` state by the matching id
-    //             const recipeToSave = searchedRecipes.find((recipe) => recipeId === recipe._id);
-        
-    //             // get token
-    //             const token = Auth.loggedIn() ? Auth.getToken() : null;
-        
-    //             if (!token) {
-    //             return false;
-    //             }
-        
-    //             try {
-    //                 const response = await saveRecipe(recipeToSave, token);
-    //                 const { data } = await saveRecipeIds({
-    //                     variables: { newRecipe: { ...recipeToSave } },
-    //                 });
-        
-    //             if (!response.ok) {
-    //                 throw new Error('something went wrong!');
-    //             }
-        
-    //             // if recipe successfully saves to user's account, save recipe id to state
-    //             setSavedRecipesIds([...savedRecipesIds, recipeToSave.recipeId]);
-    //             } catch (err) {
-    //           console.error(err);
-    //         }
-    //       };
 
     if (loading) {
         return <div>Loading....</div>
