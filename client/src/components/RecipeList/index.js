@@ -2,28 +2,9 @@ import React, { useState } from 'react';
 import { Link } from  'react-router-dom';
 import { Card } from 'react-bootstrap';
 import Auth from '../../utils/auth';
-import { useMutation } from '@apollo/client';
-import { saveRecipeIds, getSavedRecipeIds } from '../../utils/localStorage';
-import { SAVE_RECIPE } from '../../utils/mutations';
 
-const RecipeList = ({ recipes, title }) => {
-    // console.log(searchInput)
-    //if (!thoughts.length) {
-     //   return <h3>No Thoughts Yet</h3>;
-    //}
-
-      
-    // create state for holding returned google api data
-    // const [searchedRecipes, setSearchedRecipes] = useState([]);
-    // create state for holding our search field data
-    // const [searchInput, setSearchInput] = useState('');
-
-    // create state to hold saved recipeId values
-    // const [savedRecipesIds, setSavedRecipesIds] = useState(getSavedRecipeIds());
-
-    // const [saveRecipe, { error }] = useMutation(SAVE_RECIPE, {
-    //     variables: { recipeId },
-    // });
+const RecipeList = ({ recipes, title, searchInput }) => {
+    console.log(searchInput)
 
 
 
