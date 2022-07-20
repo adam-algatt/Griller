@@ -30,9 +30,14 @@ const resolvers = {
             return Recipe.findOne({ _id })
                 .populate('recipeComment');
         },
-        recipeCommentUser: async( parent, { username }) => {
-            return RecipeComment.find({ username })
-                .populate('recipe');
+        recipeCommentUser: async( parent, args, context ) => {
+            if (context.user) {
+                const commentData = await RecipeComment.find ({ username: context.user.username})
+                    return commentData;
+                }
+                throw new AuthenticationError('Not logged in');
+            // const params = username ? { username } : {};
+            // return RecipeComment.find(params).sort({ createdAt: -1 })
         }
     },
 

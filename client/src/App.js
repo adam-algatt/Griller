@@ -4,6 +4,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, } from '@a
 import { setContext } from '@apollo/client/link/context'; 
 
 import Nav from './components/Nav';
+import Footer from './components/Footer';
 
 import Landing from './pages/Landing';
 import Home from './pages/Home';
@@ -72,7 +73,8 @@ function App() {
                       <Route path="/profile" element={<Profile />} />
                     </Route>  
                 </Routes>
-            </div>  
+            </div> 
+          <Footer /> 
         </div>    
       </Router>
     </ApolloProvider> 

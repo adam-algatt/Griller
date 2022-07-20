@@ -63,3 +63,19 @@ export const QUERY_RECIPE = gql`
         }
     }   
 `;
+
+export const QUERY_COMMENT_BY_USER = gql`
+    query recipeCommentUser {
+        recipeCommentUser {
+            username
+            commentTitle
+            commentText
+            recipeId {
+                _id
+                title
+                category
+            }
+        }
+    } 
+    
+`;
