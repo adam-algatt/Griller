@@ -25,27 +25,29 @@ const SingleRecipe = props => {
     }
 
     return (
-        <div className="flex-row justify-space-between mb-3">
+        <div className="flex-row justify-space-between mb-3 card-body">
             <div className="col-12 mb-3 col-lg-8">
-                <h2 className="singleRecipeTitle">{recipe.title}</h2>
+                <h3 className="singleRecipeTitle">{recipe.title}</h3>
                 {Auth.loggedIn() && (
-                    <SaveRecipe recipeId={recipe._id} />
-                )} 
-                    <a href={recipe.link} alt="link to recipe" target="_blank">
-                        <p className="mb-0"> 
-                            Click here to get the recipe!
-                        </p>
-                    </a>
-                <img className="mb-0" src={recipe.image} alt={recipe.title}/>
-            </div>
-            <div>
-                {Auth.loggedIn() && <RecipeCommentForm 
-                    recipeId={recipe._id} 
-                    // username={userData.me.username}
-                />}
-            </div>
-            <div className="col-12 mb-3 col-lg-8">
+                        <SaveRecipe recipeId={recipe._id} />
+                    )} 
+                    <div className="singleRecipeCard">
+                        <a href={recipe.link} alt="link to recipe" target="_blank">
+                            <p className="mb-0"> 
+                                Click here to get the recipe!
+                            </p>
+                        </a>
+                        <img className="mb-0 recipe_image" src={recipe.image} alt={recipe.title}/>
+                    </div>
+                <div>
+                    {Auth.loggedIn() && <RecipeCommentForm 
+                        recipeId={recipe._id} 
+                        // username={userData.me.username}
+                    />}
+                </div>
+                <div className="col-12 mb-3 col-lg-8">
                     <RecipeComment recipeComment={recipe.recipeComment} />
+                </div>
             </div>
         </div>    
     );

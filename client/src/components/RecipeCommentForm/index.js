@@ -6,22 +6,23 @@ import { ADD_RECIPE_COMMENT } from '../../utils/mutations';
 const RecipeCommentForm = ({ recipeId }) => {
     const [commentTitle, setTitle] =useState('');
     const [commentText, setText] = useState('');
-    const [characterCount, setCharacterCount] = useState(0);
+    const [characterCount1, setCharacterCount1] = useState(0);
+    const [characterCount2, setCharacterCount2] = useState(0);
     console.log(recipeId);
 
     const [addRecipeComment, { error }] = useMutation(ADD_RECIPE_COMMENT);
 
 
     const handleChange1 = event => {
-        if (event.target.value.length <= 280) {
+        if (event.target.value.length <= 40) {
             setTitle(event.target.value);
-            setCharacterCount(event.target.value.length)
+            setCharacterCount1(event.target.value.length)
         }
     };
     const handleChange2 = event => {
         if (event.target.value.length <= 280) {
             setText(event.target.value);
-            setCharacterCount(event.target.value.length)
+            setCharacterCount2(event.target.value.length)
         }
     };
 
@@ -38,7 +39,8 @@ const RecipeCommentForm = ({ recipeId }) => {
             setText('');
             setTitle('');
         
-            setCharacterCount(event.target.value.length)
+            setCharacterCount1(event.target.value.length)
+            setCharacterCount2(event.target.value.length)
         } catch (e) {
             console.error(e);
         }
@@ -46,28 +48,34 @@ const RecipeCommentForm = ({ recipeId }) => {
 
     return (
         <div className="card-body">
-            <p className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}>
-                Character Count: {characterCount}/280
-                {error && <span className="ml-2">Something went wrong...</span>}
-            </p>
             <form 
                 className="flex-row justify-center juistify-space-between-md align-stretch"
                 onSubmit={handleFormSubmit}
-            >   
-                <input
+            >  
+                <p className={`m-0 ${characterCount1 === 40 || error ? 'text-error' : ''}`}>
+                Character Count: {characterCount1}/40
+                {error && <span className="ml-2">Something went wrong...</span>}
+                </p> 
+                <textarea
                     placeholder="Enter your comment title..."
                     value={commentTitle}
-                    className="form-input col-12 col-md-9"
+                    className="form-input1 col-12 col-md-9"
                     onChange={handleChange1}
-                ></input>
+                    rows="1"
+                ></textarea>
                 <br></br>
                 <br></br>
-                <input
+                <textarea
                     placeholder="Here's a new thought..."
                     value={commentText}
-                    className="form-input col-12 col-md-9"
+                    className="form-input2 col-12 col-md-9"
                     onChange={handleChange2}
-                ></input>
+                    rows="6"
+                ></textarea>
+                    <p className={`m-0 ${characterCount2 === 280 || error ? 'text-error' : ''}`}>
+                    Character Count: {characterCount2}/280
+                    {error && <span className="ml-2">Something went wrong...</span>}
+                </p>
                 <br></br>
                 <br></br>
                 <button className="btn col-12 col-md-3" type="submit">

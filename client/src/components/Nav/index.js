@@ -13,17 +13,16 @@ const Nav = () => {
   return (
     <header className='header'>
           <nav> 
-
-            <Link to="/home" className='title'>
-              <span>Griller</span> 
-            </Link>
+              <span>
+                <Link to="/home" className='title'>Griller</Link>
+              </span>
               <ul>
                   {Auth.loggedIn() ? (
                 <>
-                  <Link to="/profile" className="link">Profile</Link>
                   <a href="/" className="link" onClick={logout}>
                     Logout
                   </a>
+                  <Link to="/profile" className="link">Profile</Link>
                 </>
                 ) : (
                 <>

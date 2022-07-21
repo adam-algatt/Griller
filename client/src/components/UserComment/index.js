@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from  'react-router-dom';
+import React from 'react';
 import { Card } from 'react-bootstrap';
-import Auth from '../../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_COMMENT_BY_USER} from '../../utils/queries';
 
 
 const UserComment = ({ username }) => {
 
-    const { loading, data } = useQuery(QUERY_COMMENT_BY_USER);
+    const { data } = useQuery(QUERY_COMMENT_BY_USER);
     const recipeCommentUser = data?.recipeCommentUser || []
 
-    console.log(username)
-
+    console.log(recipeCommentUser)
 
     return (
         <div>
@@ -20,18 +17,18 @@ const UserComment = ({ username }) => {
                 <h3>{username}'s {'comments'}</h3>
             </div>            
             <div className="card-body">
-        
-            {recipeCommentUser &&
-                recipeCommentUser.map(comments => (
-                    <p className="pill mb-3" key={comments._id}>
-                        {comments.commentTitle}
-                        <Link to={`/recipe/${comments.recipeId}`}>
-                        </Link>
-                        <h3>Comment Title: {comments.commentTitle}</h3>
-                        <h4>{comments.commentText}</h4>
-                    </p> 
-                )
-            )}
+                {recipeCommentUser &&
+                    recipeCommentUser.map(comment => (
+                    <div>    
+                        <Card className="pill mb-3" key={comment._id}>
+                            <img className="recipe_image_small" src={comment.recipeId.image} alt={comment.recipeId.title}/>
+                            <h3>Recipe:  {comment.recipeId.title}</h3>
+                            <h3> Comment Title: {comment.commentTitle}</h3>
+                            <h4>{comment.commentText}</h4>
+                        </Card> 
+                    </div>      
+                    )   
+                )}
             </div>
         </div>     
     );

@@ -30,16 +30,12 @@ const SaveRecipe = ({ recipeId })  => {
 //     }
 
     return (
-        <div>
+        <div className="save_btn">
             <Button
-                // disabled={savedRecipesIds?.some((savedRecipeId) => savedRecipeId === recipe._id)}
-                className='btn-block btn-info'
+                className='btn col-12 col-md-3'
                 onClick={handleClick}>
-                    
-                {/* {savedRecipesIds?.some((savedRecipeId) => savedRecipeId === recipe._id) */}
-                {/* ? 'This recipe has already been saved!'
-                : 'Save this Recipe!'} */}
-            </Button> 
+                    Save
+            </Button>
     </div>
     );
 };

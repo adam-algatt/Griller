@@ -38,6 +38,7 @@ const typeDefs = gql`
         recipeCategory(category: String!): [Recipe]
         singleRecipe(_id: ID!): Recipe
         recipeCommentUser: [RecipeComment]
+        savedRecipes: User
     }
 
     type Mutation {

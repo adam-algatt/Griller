@@ -6,6 +6,12 @@ export const QUERY_ME = gql`
             _id
             username
             email
+            savedRecipes {
+                _id
+                title
+                image
+                link
+            }
         }
     }
 `;
@@ -74,8 +80,23 @@ export const QUERY_COMMENT_BY_USER = gql`
                 _id
                 title
                 category
+                image
             }
         }
     } 
     
+`;
+
+export const QUERY_SAVED_RECIPES_BY_USER = gql`
+    query savedRecipes {
+        savedRecipes {
+            username
+            savedRecipes {
+                _id
+                title
+                image
+                link
+            }
+        }
+    }
 `;

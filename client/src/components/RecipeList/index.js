@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from  'react-router-dom';
 import { Card } from 'react-bootstrap';
-import Auth from '../../utils/auth';
+
 
 const RecipeList = ({ recipes, title, searchInput }) => {
     console.log(searchInput)
@@ -11,7 +11,6 @@ const RecipeList = ({ recipes, title, searchInput }) => {
     return (
         <div>
             <Card className="card" border='dark'>
-                <h3>{title}</h3>
                 {recipes &&  recipes.map(recipe => (
                     <div key={recipe._id} className="card mb-3">
                         <div className="card-body">

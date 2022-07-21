@@ -2,21 +2,21 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME, QUERY_SAVED_RECIPES_BY_USER} from '../utils/queries';
 import Auth from '../utils/auth';
 import UserComment from '../components/UserComment';
+import SavedRecipes from '../components/SavedRecipes';
 
 const Profile = (props) => {
     const { username: userParam } = useParams();
-    // const { comments } = useQuery(QUERY_COMMENT_BY_USER, {
-    //     variable: { username: userParam }
-    // });
 
     const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
         variables: { username: userParam },
     });
     const user = data?.me || data?.user || {};
 
+    const { recipeData } = useQuery(QUERY_SAVED_RECIPES_BY_USER);
+    const savedRecipes = recipeData?.savedRecipes || []
 
     // navigate to personal profile page if username is the logged-in user
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -44,9 +44,14 @@ const Profile = (props) => {
                     {loading ? (
                         <div>Loading</div>
                     ) : (
-                    <UserComment 
-                        username={user.username}
-                    /> 
+                    <div>
+                        <UserComment 
+                            username={user.username}
+                        /> 
+                        <SavedRecipes
+                            username={user.username}
+                        />
+                    </div>
                 )}
             </div>  
         </div>

@@ -7,7 +7,8 @@ const resolvers = {
         me: async ( parent, args, context ) => {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
-                    .select('-__v -password');
+                    .select('-__v -password')
+                    .populate('savedRecipes');
 
                 return userData;
             }
@@ -16,7 +17,7 @@ const resolvers = {
         users: async() => {
             return User.find()
                 .select('-__v -password')
-                .populate('savedRecipe');
+                .populate('savedRecipes');
         },
         recipes: async() => {
             return Recipe.find()
@@ -33,11 +34,20 @@ const resolvers = {
         recipeCommentUser: async( parent, args, context ) => {
             if (context.user) {
                 const commentData = await RecipeComment.find ({ username: context.user.username})
+                    .populate('recipeId')    
+
                     return commentData;
                 }
                 throw new AuthenticationError('Not logged in');
-            // const params = username ? { username } : {};
-            // return RecipeComment.find(params).sort({ createdAt: -1 })
+        },
+        savedRecipes: async( parent, args, context ) => {
+            if (context.user) {
+                const recipeData = await User.findOne ({ _id: context.user._id })
+                    .populate('savedRecipes')    
+
+                    return recipeData;
+                }
+                throw new AuthenticationError('Not logged in');
         }
     },
 
@@ -75,9 +85,10 @@ const resolvers = {
                     { _id: recipeId},
                     { $push: { recipeComment: [recipeComment._id]}},
                     { new: true }
-                );
-                return recipeComment
-                    .populate('recipe');
+                )
+                .populate('recipeId');
+
+                return recipeComment       
             }
             throw new AuthenticationError('You need to be logged in to leave a comment!')
         },

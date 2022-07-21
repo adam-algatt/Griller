@@ -128,12 +128,13 @@ const Recipes = () => {
               </Col>
           </Form>
         </Container>
-      <Container className="card">
+
         <h3>
           {searchedRecipes.length
             ? `Viewing ${searchedRecipes.length} results for ${searchInput}:`
             : 'Select a recipe category above to narrow your search!'}
-            </h3>
+          </h3>
+          <Container className="card">
             {loading ? (
               <div>Loading....</div>
             ) : (
