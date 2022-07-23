@@ -8,7 +8,8 @@ const resolvers = {
             if (context.user) {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
-                    .populate('savedRecipes');
+                    .populate('savedRecipes')
+                    .populate('savedGear');
 
                 return userData;
             }
@@ -112,6 +113,18 @@ const resolvers = {
                     { $addToSet: { savedRecipes: [_id]}},
                     { new: true }
                 ).populate('savedRecipes');
+                
+                return updatedUser
+                }
+            throw new AuthenticationError('Please login')
+        },
+        saveGear: async ( parent, { _id }, context) => {
+            if(context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $addToSet: { savedGear: [_id]}},
+                    { new: true }
+                ).populate('savedGear');
                 
                 return updatedUser
                 }

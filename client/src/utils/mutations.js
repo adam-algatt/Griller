@@ -51,6 +51,20 @@ export const SAVE_RECIPE = gql`
     }
 `;
 
+export const SAVE_GEAR = gql`
+    mutation saveGear($_id: ID!) {
+        saveGear(_id: $_id) {
+            _id
+            username
+            email
+            savedGear {
+                _id
+                title
+            }
+        }
+    }
+`;
+
 export const REMOVE_RECIPE = gql`
     mutation removeRecipe($_id: ID!) {
         removeRecipe(_id: $_id) {

@@ -26,6 +26,12 @@ const userSchema = new Schema(
         ref: 'Recipe'
       }
     ],
+    savedGear: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Gear'
+      }
+    ],
     recipeComments: [
       {
         type: Schema.Types.ObjectId,

@@ -6,6 +6,7 @@ const typeDefs = gql`
         username: String
         email: String
         savedRecipes: [Recipe]
+        savedGear: [Gear]
     }
 
     type Recipe {
@@ -70,6 +71,7 @@ const typeDefs = gql`
         removeRecipe(_id: ID!): User
         removeRecipeComment(_id: ID!): RecipeComment
         addGear(category: String!, title: String!, image: String!, link: String!): Gear
+        saveGear(_id: ID!): User
     }
 `;
 

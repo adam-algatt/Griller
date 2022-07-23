@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from 'react-router-dom';
 
-import SaveGear from '../components/SaveRecipe';
-import GearComment from '../components/RecipeComment';
-import GearCommentForm from '../components/RecipeCommentForm';
+import SaveGear from '../components/SaveGear';
+// import GearComment from '../components/GearComment';
+// import GearCommentForm from '../components/GearCommentForm';
 import { useQuery } from '@apollo/client';
 import { QUERY_SINGLE_GEAR, QUERY_ME } from '../utils/queries';
 
@@ -39,7 +39,7 @@ const SingleGear = props => {
                         </a>
                         <img className="mb-0 recipe_image" src={gear.image} alt={gear.title}/>
                     </div>
-                <div>
+                {/* <div>
                     {Auth.loggedIn() && <GearCommentForm 
                         gearId={gear._id} 
                         // username={userData.me.username}
@@ -47,7 +47,7 @@ const SingleGear = props => {
                 </div>
                 <div className="col-12 mb-3 col-lg-8">
                     <GearComment gearComment={gear.gearComment} />
-                </div>
+                </div> */}
             </div>
         </div>    
     );
