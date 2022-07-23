@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Recipe, RecipeComment } = require('../models');
+const { User, Recipe, RecipeComment, Gear, GearComment } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -23,6 +23,10 @@ const resolvers = {
             return Recipe.find()
                 .populate('recipeComment');
         },
+        gear: async() => {
+            return Gear.find()
+                .populate('gear');
+        },
         recipeCategory: async( parent, { category } ) => {
             return Recipe.find({ category })
                 .populate('recipeComment');
@@ -30,6 +34,10 @@ const resolvers = {
         singleRecipe: async( parent, { _id } ) => {
             return Recipe.findOne({ _id })
                 .populate('recipeComment');
+        },
+        singleGear: async( parent, { _id } ) => {
+            return Gear.findOne({ _id })
+                .populate('gearComment');
         },
         recipeCommentUser: async( parent, args, context ) => {
             if (context.user) {
@@ -77,6 +85,11 @@ const resolvers = {
 
             return recipe;
         },
+        addGear: async (parent, args ) => {
+            const gear = await Gear.create(args);
+
+            return gear;
+        },
         addRecipeComment: async ( parent, { recipeId, commentTitle, commentText }, context ) => {
             if (context.user) {
                 const recipeComment = await RecipeComment.create({ recipeId, commentTitle, commentText, username: context.user.username});
@@ -103,8 +116,26 @@ const resolvers = {
                 return updatedUser
                 }
             throw new AuthenticationError('Please login')
-        }
-    }
+        },
+        removeRecipe: async ( parent, { _id }, context) => {
+            if(context.user) {
+                const updatedUser = await User.findOneAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { savedRecipes: { _id }}},
+                ).populate('savedRecipes');
+                
+                return updatedUser
+                }
+            throw new AuthenticationError('Please login')
+        },
+        removeRecipeComment: async ( parent, { _id }) => {
+                const updatedRecipeComments = await RecipeComment.findByIdAndUpdate(
+                    { _id: _id },
+                    { $pull: { _id }},
+                )
+                return updatedRecipeComments
+        },
+    },
 };
 
 module.exports = resolvers;

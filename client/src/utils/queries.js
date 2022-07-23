@@ -41,6 +41,18 @@ export const QUERY_RECIPES = gql`
     }
 `;
 
+export const QUERY_GEAR = gql`
+    query gear {
+        gear {
+            _id
+            category
+            title
+            link
+            image
+        }
+    }
+`;
+
 export const QUERY_BY_CATEGORY = gql`
     query recipeCategory($category: String!) {
         recipeCategory(category: $category) {
@@ -83,8 +95,7 @@ export const QUERY_COMMENT_BY_USER = gql`
                 image
             }
         }
-    } 
-    
+    }  
 `;
 
 export const QUERY_SAVED_RECIPES_BY_USER = gql`
@@ -99,4 +110,23 @@ export const QUERY_SAVED_RECIPES_BY_USER = gql`
             }
         }
     }
+`;
+
+
+export const QUERY_SINGLE_GEAR= gql`
+    query singleGear($_id: ID!) {
+        singleGear(_id: $_id) {
+            _id
+            title
+            image
+            link
+            gearComment {
+                _id
+                commentTitle
+                commentText
+                createdAt
+                username
+            }
+        }
+    }   
 `;

@@ -35,16 +35,42 @@ export const ADD_RECIPE_COMMENT = gql`
             }
         }
     }  
-`
+`;
+
 export const SAVE_RECIPE = gql`
     mutation saveRecipe($_id: ID!) {
         saveRecipe(_id: $_id) {
+            _id
             username
             email
             savedRecipes {
                 _id
                 title
             }
+        }
+    }
+`;
+
+export const REMOVE_RECIPE = gql`
+    mutation removeRecipe($_id: ID!) {
+        removeRecipe(_id: $_id) {
+            _id
+            username
+            email
+            savedRecipes {
+                _id
+                title
+                image
+                link
+            }
+        }
+    }
+`;
+
+export const REMOVE_RECIPE_COMMENT = gql`
+    mutation removeRecipeComment($_id: ID!) {
+        removeRecipeComment(_id: $_id) {
+            _id
         }
     }
 `;

@@ -31,6 +31,7 @@ const Nav = () => {
                 </>
                 )}
                   <Link to="/recipes" className='link'>Recipes</Link>
+                  <Link to="/gear" className='link'>Gear</Link>
               </ul>
           </nav>
   </header>

@@ -1,7 +1,9 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 
+
 const RecipeComment = ({ recipeComment }) => {
+
     return (
         <div className="card mb-3">
             <div className="card-header">
@@ -15,7 +17,7 @@ const RecipeComment = ({ recipeComment }) => {
                             <h4>Comment: {recipeComment.commentText}</h4>
                             <h4>Posted By:  {recipeComment.username}</h4>
                             <h4>Posted On:  {recipeComment.createdAt}</h4>
-                        </div>
+                       </div>
                     )
                 )}
         </div>

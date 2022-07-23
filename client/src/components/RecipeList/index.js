@@ -6,8 +6,6 @@ import { Card } from 'react-bootstrap';
 const RecipeList = ({ recipes, title, searchInput }) => {
     console.log(searchInput)
 
-
-
     return (
         <div>
             <Card className="card" border='dark'>

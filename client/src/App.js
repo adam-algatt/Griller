@@ -13,6 +13,8 @@ import Signup from './pages/Signup';
 import Recipes from './pages/Recipes';
 import SingleRecipe from './pages/SingleRecipe';
 import Profile from './pages/Profile';
+import Gear from './pages/Gear';
+import SingleGear from './pages/SingleGear';
 
 
 const httpLink = createHttpLink({
@@ -67,6 +69,14 @@ function App() {
                     path="/recipe/:id"
                     element={<SingleRecipe />}
                   /> 
+                  <Route 
+                    path="/gear"
+                    element={<Gear />}
+                  /> 
+                  <Route
+                    path="/gear/:id"
+                    element={<SingleGear />}
+                  />
                   <Route
                     path="/profile">
                       <Route path=":username" element={<Profile />} />

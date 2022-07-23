@@ -10,7 +10,9 @@ const Home = () => {
                 <button className="recipes">
                     <Link to="/recipes" className="link">Recipes</Link>
                 </button>
-                <button className="gear">Gear</button>
+                <button className="gear">
+                    <Link to="/gear" className="link">Gear</Link>
+                </button>
                 <button className="restaurants">Restaurants</button>
             </div>
         </div>

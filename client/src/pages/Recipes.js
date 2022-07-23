@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Col, Form, Button, Card, ToggleButtonGroup } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import RecipeList from '../components/RecipeList'; 
+import RecipeListByCategory from '../components/RecipeListByCategory'; 
 import { QUERY_RECIPES } from '../utils/queries';
 
 
@@ -34,6 +35,7 @@ const Recipes = () => {
     }
     
     try {
+
       const response = await RecipeList(searchInput);
       console.log(searchInput);
 
@@ -52,7 +54,7 @@ const Recipes = () => {
       setSearchedRecipes(recipeData);
       setSearchInput('');
     } catch (err) {
-  //     console.error(err);
+      console.error(err);
     }
   };
 

@@ -2,27 +2,22 @@ const { Schema, model } = require('mongoose');
 
 const gearSchema = new Schema(
   {
-    name: {
+    title: {
       type: String,
-      required: true,
-      trim: true
     },
-    brand: {
+    category: {
       type: String,
-      required: true,
     },
-    // categories either a separate model or 
-    password: {
+    image: {
       type: String,
-      required: true,
-      minlength: 5
     },
-    rating: 
-      {
-        type: Number,
-        min: 1,
-        max: 5
-      },
+    link: {
+      type: String,
+    },
+    gearComment: [{
+        type: Schema.Types.ObjectId,
+        ref: 'GearComment'
+    }]
   },
   {
     toJSON: {
@@ -30,7 +25,6 @@ const gearSchema = new Schema(
     }
   }
 );
-
 
 const Gear = model('Gear', gearSchema);
 

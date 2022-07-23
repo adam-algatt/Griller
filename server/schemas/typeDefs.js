@@ -17,6 +17,15 @@ const typeDefs = gql`
         recipeComment: [RecipeComment]
     }
 
+    type Gear {
+        _id: ID
+        category: String
+        title: String
+        link: String
+        image: String
+        gearComment: [GearComment]
+    }
+
     type RecipeComment {
         _id: ID!
         commentTitle: String
@@ -24,6 +33,15 @@ const typeDefs = gql`
         createdAt: String
         username: String
         recipeId: Recipe
+    }
+
+    type GearComment {
+        _id: ID!
+        commentTitle: String
+        commentText: String
+        createdAt: String
+        username: String
+        gearId: Gear
     }
 
     type Auth {
@@ -39,6 +57,8 @@ const typeDefs = gql`
         singleRecipe(_id: ID!): Recipe
         recipeCommentUser: [RecipeComment]
         savedRecipes: User
+        gear: [Gear]
+        singleGear(_id: ID!): Gear
     }
 
     type Mutation {
@@ -47,6 +67,9 @@ const typeDefs = gql`
         addRecipe(category: String!, title: String!, image: String!, link: String!): Recipe
         addRecipeComment(commentTitle: String!, commentText: String!, recipeId: ID! ): RecipeComment
         saveRecipe(_id: ID!): User
+        removeRecipe(_id: ID!): User
+        removeRecipeComment(_id: ID!): RecipeComment
+        addGear(category: String!, title: String!, image: String!, link: String!): Gear
     }
 `;
 
