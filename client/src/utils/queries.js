@@ -12,6 +12,12 @@ export const QUERY_ME = gql`
                 image
                 link
             }
+            savedGear {
+                _id
+                title
+                image
+                link
+            }
         }
     }
 `;
@@ -112,6 +118,19 @@ export const QUERY_SAVED_RECIPES_BY_USER = gql`
     }
 `;
 
+export const QUERY_SAVED_GEAR_BY_USER = gql`
+    query savedGear {
+        savedGear {
+            username
+            savedGear {
+                _id
+                title
+                image
+                link
+            }
+        }
+    }
+`;
 
 export const QUERY_SINGLE_GEAR= gql`
     query singleGear($_id: ID!) {

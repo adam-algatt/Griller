@@ -2,10 +2,11 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
 import { useQuery } from '@apollo/client';
-import { QUERY_USER, QUERY_ME, QUERY_SAVED_RECIPES_BY_USER} from '../utils/queries';
+import { QUERY_USER, QUERY_ME, QUERY_SAVED_RECIPES_BY_USER, QUERY_SAVED_GEAR_BY_USER } from '../utils/queries';
 import Auth from '../utils/auth';
-import UserComment from '../components/UserComment';
+import UserRecipeComment from '../components/UserRecipeComment';
 import SavedRecipes from '../components/SavedRecipes';
+import SavedGear from '../components/SavedGear';
 
 const Profile = (props) => {
     const { username: userParam } = useParams();
@@ -16,7 +17,10 @@ const Profile = (props) => {
     const user = data?.me || data?.user || {};
 
     const { recipeData } = useQuery(QUERY_SAVED_RECIPES_BY_USER);
-    const savedRecipes = recipeData?.savedRecipes || []
+    const savedRecipes = recipeData?.savedRecipes || [];
+
+    const { gearData } = useQuery(QUERY_SAVED_GEAR_BY_USER);
+    const savedGear = gearData?.savedGear || [];
 
     // navigate to personal profile page if username is the logged-in user
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
@@ -45,10 +49,13 @@ const Profile = (props) => {
                         <div>Loading</div>
                     ) : (
                     <div>
-                        <UserComment 
+                        <UserRecipeComment 
                             username={user.username}
                         /> 
                         <SavedRecipes
+                            username={user.username}
+                        />
+                        <SavedGear
                             username={user.username}
                         />
                     </div>

@@ -33,7 +33,7 @@ const SavedGear = ({ username }) => {
                         <Card className="pill mb-3">
                             <img className="recipe_image_small" src={gear.image} alt={gear.title}/>
                             <h3>Gear:  {gear.title}</h3>
-                            <h3>Comment Title: {gear.link}</h3>
+                            {/* <h3>Comment Title: {gear.link}</h3> */}
                             {/* <Button className='btn-block btn-danger' onClick={() => handleDeleteGear(gear._id)}>
                                 Delete
                             </Button> */}

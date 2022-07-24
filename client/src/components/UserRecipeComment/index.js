@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client';
 import { REMOVE_RECIPE_COMMENT} from '../../utils/mutations';
 
 
-const UserComment = ({ username }) => {
+const UserRecipeComment = ({ username }) => {
 
     const { data } = useQuery(QUERY_COMMENT_BY_USER);
     const recipeCommentUser = data?.recipeCommentUser || []
@@ -53,4 +53,4 @@ const UserComment = ({ username }) => {
     );
 };
 
-export default UserComment;
+export default UserRecipeComment;

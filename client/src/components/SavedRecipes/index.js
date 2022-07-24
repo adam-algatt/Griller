@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
@@ -32,8 +33,8 @@ const SavedRecipes = ({ username }) => {
                         <div key={recipe._id}>
                         <Card className="pill mb-3">
                             <img className="recipe_image_small" src={recipe.image} alt={recipe.title}/>
-                            <h3>Recipe:  {recipe.title}</h3>
-                            <h3>Comment Title: {recipe.link}</h3>
+                            <h3>Recipe:  {recipe.title}</h3>  
+                            <h2><Link to={`/recipe/${recipe._id}`}>Go to the recipe page</Link></h2>
                             <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipe(recipe._id)}>
                                 Delete
                             </Button>

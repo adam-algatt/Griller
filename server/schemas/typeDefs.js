@@ -60,6 +60,7 @@ const typeDefs = gql`
         savedRecipes: User
         gear: [Gear]
         singleGear(_id: ID!): Gear
+        savedGear: User
     }
 
     type Mutation {
