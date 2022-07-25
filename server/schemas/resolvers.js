@@ -66,7 +66,16 @@ const resolvers = {
                     return gearData;
                 }
                 throw new AuthenticationError('Not logged in');
-        }
+        },
+        gearCommentUser: async( parent, args, context ) => {
+            if (context.user) {
+                const commentData = await GearComment.find ({ username: context.user.username})
+                    .populate('gearId')    
+
+                    return commentData;
+                }
+                throw new AuthenticationError('Not logged in');
+        },
     },
 
     Mutation: {

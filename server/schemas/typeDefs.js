@@ -61,6 +61,7 @@ const typeDefs = gql`
         gear: [Gear]
         singleGear(_id: ID!): Gear
         savedGear: User
+        gearCommentUser: [GearComment]
     }
 
     type Mutation {

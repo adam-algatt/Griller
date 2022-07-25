@@ -67,7 +67,7 @@ export const SAVE_GEAR = gql`
 
 export const ADD_GEAR_COMMENT = gql`
     mutation addGearComment($commentTitle: String!, $commentText: String!, $gearId: ID!) {
-        addGearComment(commentTitle: $commentTitle, commentText: $commentText, gearId: $recipeId) {
+        addGearComment(commentTitle: $commentTitle, commentText: $commentText, gearId: $gearId) {
             commentTitle
             commentText
             username

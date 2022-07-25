@@ -36,7 +36,7 @@ const UserGearComment = ({ username }) => {
                     gearCommentUser.map(comment => (
                     <div>    
                         <Card className="pill mb-3" key={comment._id}>
-                            <img className="recipe_image_small" src={comment.recipeId.image} alt={comment.title}/>
+                            <img className="recipe_image_small" src={comment.gearId.image} alt={comment.title}/>
                             <h3>Gear:  {comment.gearId.title}</h3>
                             <h3> Comment Title: {comment.commentTitle}</h3>
                             <h4>{comment.commentText}</h4>

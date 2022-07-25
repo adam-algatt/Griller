@@ -30,14 +30,16 @@ const Recipes = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     
+    var category = searchInput;
+
     if (!searchInput) {
       return false;
     }
     
     try {
 
-      const response = await RecipeList(searchInput);
-      console.log(searchInput);
+      const response = await RecipeList(category);
+      console.log(category);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
