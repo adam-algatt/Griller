@@ -7,6 +7,7 @@ import Auth from '../utils/auth';
 import UserRecipeComment from '../components/UserRecipeComment';
 import SavedRecipes from '../components/SavedRecipes';
 import SavedGear from '../components/SavedGear';
+import UserGearComment from '../components/UserGearComment';
 
 const Profile = (props) => {
     const { username: userParam } = useParams();
@@ -53,6 +54,9 @@ const Profile = (props) => {
                             username={user.username}
                         /> 
                         <SavedRecipes
+                            username={user.username}
+                        />
+                        <UserGearComment
                             username={user.username}
                         />
                         <SavedGear

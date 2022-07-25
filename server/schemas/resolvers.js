@@ -139,6 +139,21 @@ const resolvers = {
                 }
             throw new AuthenticationError('Please login')
         },
+        addGearComment: async ( parent, { gearId, commentTitle, commentText }, context ) => {
+            if (context.user) {
+                const gearComment = await GearComment.create({ gearId, commentTitle, commentText, username: context.user.username});
+
+                await Gear.findByIdAndUpdate(
+                    { _id: gearId},
+                    { $push: { gearComment: [gearComment._id]}},
+                    { new: true }
+                )
+                .populate('gearId');
+
+                return gearComment       
+            }
+            throw new AuthenticationError('You need to be logged in to leave a comment!')
+        },
         removeRecipe: async ( parent, { _id }, context) => {
             if(context.user) {
                 const updatedUser = await User.findOneAndUpdate(

@@ -88,7 +88,7 @@ export const QUERY_RECIPE = gql`
     }   
 `;
 
-export const QUERY_COMMENT_BY_USER = gql`
+export const QUERY_RECIPE_COMMENT_BY_USER = gql`
     query recipeCommentUser {
         recipeCommentUser {
             username
@@ -148,4 +148,19 @@ export const QUERY_SINGLE_GEAR= gql`
             }
         }
     }   
+`;
+export const QUERY_GEAR_COMMENT_BY_USER = gql`
+    query gearCommentUser {
+        gearCommentUser {
+            username
+            commentTitle
+            commentText
+            gearId {
+                _id
+                title
+                category
+                image
+            }
+        }
+    }  
 `;

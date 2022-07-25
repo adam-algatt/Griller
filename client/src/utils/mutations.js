@@ -65,6 +65,19 @@ export const SAVE_GEAR = gql`
     }
 `;
 
+export const ADD_GEAR_COMMENT = gql`
+    mutation addGearComment($commentTitle: String!, $commentText: String!, $gearId: ID!) {
+        addGearComment(commentTitle: $commentTitle, commentText: $commentText, gearId: $recipeId) {
+            commentTitle
+            commentText
+            username
+            gearId {
+               _id
+            }
+        }
+    }  
+`;
+
 export const REMOVE_RECIPE = gql`
     mutation removeRecipe($_id: ID!) {
         removeRecipe(_id: $_id) {
@@ -84,6 +97,14 @@ export const REMOVE_RECIPE = gql`
 export const REMOVE_RECIPE_COMMENT = gql`
     mutation removeRecipeComment($_id: ID!) {
         removeRecipeComment(_id: $_id) {
+            _id
+        }
+    }
+`;
+
+export const REMOVE_GEAR_COMMENT = gql`
+    mutation removeGearComment($_id: ID!) {
+        removeGearComment(_id: $_id) {
             _id
         }
     }

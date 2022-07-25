@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
@@ -33,6 +34,7 @@ const SavedGear = ({ username }) => {
                         <Card className="pill mb-3">
                             <img className="recipe_image_small" src={gear.image} alt={gear.title}/>
                             <h3>Gear:  {gear.title}</h3>
+                            <h2><Link to={`/gear/${gear._id}`}>Go to the gear page</Link></h2>
                             {/* <h3>Comment Title: {gear.link}</h3> */}
                             {/* <Button className='btn-block btn-danger' onClick={() => handleDeleteGear(gear._id)}>
                                 Delete
