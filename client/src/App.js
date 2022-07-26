@@ -15,6 +15,7 @@ import SingleRecipe from './pages/SingleRecipe';
 import Profile from './pages/Profile';
 import Gear from './pages/Gear';
 import SingleGear from './pages/SingleGear';
+import Map from './pages/Eatery';
 
 
 const httpLink = createHttpLink({
@@ -76,6 +77,10 @@ function App() {
                   <Route
                     path="/gear/:id"
                     element={<SingleGear />}
+                  />
+                    <Route
+                    path="/eatery"
+                    element={<Map />}
                   />
                   <Route
                     path="/profile">
