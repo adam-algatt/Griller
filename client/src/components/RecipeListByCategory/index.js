@@ -3,7 +3,7 @@ import { Link } from  'react-router-dom';
 import { Button } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 import { useQuery} from '@apollo/client';
-import { QUERY_BY_CATEGORY } from '../../utils/queries';
+import { QUERY_RECIPES_BY_CATEGORY } from '../../utils/queries';
 
 
 const RecipeListByCategory = ({ title, searchInput }) => {
@@ -13,7 +13,7 @@ const RecipeListByCategory = ({ title, searchInput }) => {
      //   return <h3>No Thoughts Yet</h3>;
     //}
 
-    const currentRecipes = useQuery(QUERY_BY_CATEGORY, {
+    const currentRecipes = useQuery(QUERY_RECIPES_BY_CATEGORY, {
         variables: { category: searchInput},
     })
 

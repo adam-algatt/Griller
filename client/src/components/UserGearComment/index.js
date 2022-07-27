@@ -11,8 +11,6 @@ const UserGearComment = ({ username }) => {
     const { data } = useQuery(QUERY_GEAR_COMMENT_BY_USER);
     const gearCommentUser = data?.gearCommentUser || []
 
-    console.log(gearCommentUser)
-
     const [removeGearComment, { error }] = useMutation(REMOVE_GEAR_COMMENT);
 
     const handleDeleteGearComment = async ( _id) => {

@@ -24,28 +24,30 @@ const SavedGear = ({ username }) => {
     // };
 
     return (
-        <div>
+        <div className="card-container">
             <div className='card-header'>
-                <h3>{username}'s {'saved gear'}</h3>
-                <div>
-                    {userData.savedGear.map((gear) => {
-                        return (
-                        <div key={gear._id}>
-                        <Card className="pill mb-3">
+                <h3 className="profileHeader">
+                    {userData.savedGear.length
+                    ? `Viewing ${username}'s saved gear'`
+                    : 'You have no saved gear!'}
+                </h3>
+                {userData.savedGear.map((gear) => {
+                    return (
+                    <div key={gear._id}>
+                        <Card className="card-body">
                             <img className="recipe_image_small" src={gear.image} alt={gear.title}/>
-                            <h3>Gear:  {gear.title}</h3>
-                            <h2><Link to={`/gear/${gear._id}`}>Go to the gear page</Link></h2>
+                            <h4>Gear:  {gear.title}</h4>
+                            <h3><Link to={`/gear/${gear._id}`}>Go to the gear page</Link></h3>
                             {/* <h3>Comment Title: {gear.link}</h3> */}
                             {/* <Button className='btn-block btn-danger' onClick={() => handleDeleteGear(gear._id)}>
                                 Delete
                             </Button> */}
                         </Card>  
-                        </div>
+                    </div>
                     );
-                })}                    
-                </div>  
-            </div>
-        </div>     
+                })}                  
+            </div>  
+        </div>    
     );
 };
 

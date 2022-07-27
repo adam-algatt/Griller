@@ -3,13 +3,16 @@ import { Link } from  'react-router-dom';
 import { Card } from 'react-bootstrap';
 
 
+
 const RecipeList = ({ recipes, title, searchInput }) => {
     console.log(searchInput)
+    console.log(recipes)
+    
 
     return (
         <div>
-            <Card className="card" border='dark'>
-                {recipes &&  recipes.map(recipe => (
+            <Card className="card-container" border='dark'>
+                {recipes.recipeCategory.map(recipe => (
                     <div key={recipe._id} className="card mb-3">
                         <div className="card-body">
                             <Link to={`/recipe/${recipe._id}`}>
@@ -24,7 +27,7 @@ const RecipeList = ({ recipes, title, searchInput }) => {
                         </div>   
                     </div>
                     ))
-                }   
+                }    
             </Card>
         </div>
     );

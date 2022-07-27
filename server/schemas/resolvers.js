@@ -167,7 +167,8 @@ const resolvers = {
             if(context.user) {
                 const updatedUser = await User.findOneAndUpdate(
                     { _id: context.user._id },
-                    { $pull: { savedRecipes: { _id }}},
+                    { $pull: { $in: [{ savedRecipes: { _id }}]}},
+                    { new: true }
                 ).populate('savedRecipes');
                 
                 return updatedUser
@@ -177,11 +178,25 @@ const resolvers = {
         removeRecipeComment: async ( parent, { _id }) => {
                 const updatedRecipeComments = await RecipeComment.findByIdAndUpdate(
                     { _id: _id },
-                    { $pull: { _id }},
+                    { deleteOne: { _id }},
                 )
                 return updatedRecipeComments
         },
+        deleteRecipe: async ( parent, { _id }) => {
+            const deletedRecipe = await Recipe.deleteOne(_id);
+            
+            return deletedRecipe;
+        },
+        updateRecipeComment: async ( parent, { _id }) => {
+            const updatedRecipe = await RecipeComment.findByIdAndUpdate(
+                { _id: _id },
+                { $push: { recipeId: {_id}}},
+            ).populate('Recipe')
+
+                return updatedRecipe
+        }
     },
 };
+
 
 module.exports = resolvers;

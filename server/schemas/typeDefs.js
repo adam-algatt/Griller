@@ -10,7 +10,7 @@ const typeDefs = gql`
     }
 
     type Recipe {
-        _id: ID
+        _id: ID!
         category: String
         title: String
         link: String
@@ -75,6 +75,8 @@ const typeDefs = gql`
         addGear(category: String!, title: String!, image: String!, link: String!): Gear
         saveGear(_id: ID!): User
         addGearComment(commentTitle: String!, commentText: String!, gearId: ID! ): GearComment
+        deleteRecipe(_id: ID!): Recipe
+        updateRecipeComment(_id: ID!, recipeId: ID!): RecipeComment
     }
 `;
 

@@ -59,9 +59,10 @@ export const QUERY_GEAR = gql`
     }
 `;
 
-export const QUERY_BY_CATEGORY = gql`
+export const QUERY_RECIPES_BY_CATEGORY = gql`
     query recipeCategory($category: String!) {
         recipeCategory(category: $category) {
+            _id
             title
             image
             link
