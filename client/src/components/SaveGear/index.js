@@ -16,6 +16,9 @@ const SaveGear = ({ gearId })  => {
         } catch (e) {
             console.error(e)
         }
+        if (Response.ok) {
+            throw new Error('Gear has been saved!');
+        }
     };
     
 // async () => { recipe }

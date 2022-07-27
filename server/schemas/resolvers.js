@@ -28,7 +28,7 @@ const resolvers = {
             return Gear.find()
                 .populate('gear');
         },
-        recipeCategory: async( parent, { category } ) => {
+        recipesByCategory: async( parent, { category } ) => {
             return Recipe.find({ category })
                 .populate('recipeComment');
         },
@@ -75,6 +75,10 @@ const resolvers = {
                     return commentData;
                 }
                 throw new AuthenticationError('Not logged in');
+        },
+        gearByCategory: async( parent, { category } ) => {
+            return Gear.find({ category })
+                .populate('gearComment');
         },
     },
 

@@ -60,8 +60,8 @@ export const QUERY_GEAR = gql`
 `;
 
 export const QUERY_RECIPES_BY_CATEGORY = gql`
-    query recipeCategory($category: String!) {
-        recipeCategory(category: $category) {
+    query recipesByCategory($category: String!) {
+        recipesByCategory(category: $category) {
             _id
             title
             image
@@ -164,4 +164,16 @@ export const QUERY_GEAR_COMMENT_BY_USER = gql`
             }
         }
     }  
+`;
+
+export const QUERY_GEAR_BY_CATEGORY = gql`
+    query gearByCategory($category: String!) {
+        gearByCategory(category: $category) {
+            _id
+            title
+            image
+            link
+            category
+        }
+    }
 `;

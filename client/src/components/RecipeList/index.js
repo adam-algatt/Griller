@@ -11,15 +11,15 @@ const RecipeList = ({ recipes, title, searchInput }) => {
 
     return (
         <div>
-            <Card className="card-container" border='dark'>
-                {recipes.recipeCategory.map(recipe => (
-                    <div key={recipe._id} className="card mb-3">
+            <Card className="card" border='dark'>
+                {recipes && recipes.recipesByCategory.map(recipes => (
+                    <div key={recipes._id} className="card mb-3">
                         <div className="card-body">
-                            <Link to={`/recipe/${recipe._id}`}>
-                                <p>{recipe.title}</p>
-                                <img className="recipe_image" src={recipe.image} alt={recipe.title}/> 
+                            <Link to={`/recipe/${recipes._id}`}>
+                                <p>{recipes.title}</p>
+                                <img className="recipe_image" src={recipes.image} alt={recipes.title}/> 
                             </Link>
-                                <a href={recipe.link}  target="_blank">
+                                <a href={recipes.link}  target="_blank">
                                 <p className="mb-0"> 
                                     Click here to get the recipe!
                                 </p>

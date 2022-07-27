@@ -3,12 +3,14 @@ import { Link } from  'react-router-dom';
 import { Card } from 'react-bootstrap';
 
 
-const GearList = ({ gear, title }) => {
+const GearList = ({ gear, title, searchInput }) => {
+    console.log(searchInput)
+    console.log(gear)
 
     return (
         <div>
             <Card className="card" border='dark'>
-                {gear &&  gear.map(gear => (
+                {gear &&  gear.gearByCategory.map(gear => (
                     <div key={gear._id} className="card mb-3">
                         <div className="card-body">
                             <Link to={`/gear/${gear._id}`}>

@@ -54,7 +54,7 @@ const typeDefs = gql`
         me: User
         users: [User]
         recipes: [Recipe]
-        recipeCategory(category: String!): [Recipe]
+        recipesByCategory(category: String!): [Recipe]
         singleRecipe(_id: ID!): Recipe
         recipeCommentUser: [RecipeComment]
         savedRecipes: User
@@ -62,6 +62,7 @@ const typeDefs = gql`
         singleGear(_id: ID!): Gear
         savedGear: User
         gearCommentUser: [GearComment]
+        gearByCategory(category: String!): [Gear]
     }
 
     type Mutation {
