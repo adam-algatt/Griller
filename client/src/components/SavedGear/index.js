@@ -24,17 +24,19 @@ const SavedGear = ({ username }) => {
     // };
 
     return (
-        <div className="card-container">
+        <div>
             <div className='card-header'>
-                <h3 className="profileHeader">
+                <h3>
                     {userData.savedGear.length
                     ? `Viewing ${username}'s saved gear'`
                     : 'You have no saved gear!'}
                 </h3>
+            </div> 
+            <div className="card-body">   
                 {userData.savedGear.map((gear) => {
                     return (
                     <div key={gear._id}>
-                        <Card className="card-body">
+                        <Card className="pill mb-3">
                             <img className="recipe_image_small" src={gear.image} alt={gear.title}/>
                             <h4>Gear:  {gear.title}</h4>
                             <h3><Link to={`/gear/${gear._id}`}>Go to the gear page</Link></h3>

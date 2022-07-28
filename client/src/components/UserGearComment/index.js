@@ -31,12 +31,13 @@ const UserGearComment = ({ username }) => {
             </div>            
             <div className="card-body">
                 {gearCommentUser &&
-                    gearCommentUser.map(comment => (
-                    <div>    
-                        <Card className="pill mb-3" key={comment._id}>
+                    gearCommentUser.map(comment => {
+                        return (
+                    <div  key={comment.gearId._id}>    
+                        <Card className="pill mb-3">
                             <img className="recipe_image_small" src={comment.gearId.image} alt={comment.title}/>
-                            <h3>Gear:  {comment.gearId.title}</h3>
-                            <h3> Comment Title: {comment.commentTitle}</h3>
+                            <h4>Gear:  {comment.gearId.title}</h4>
+                            <h4> Comment Title: {comment.commentTitle}</h4>
                             <h4>{comment.commentText}</h4>
                                                
                             <Button className='btn-block btn-danger' onClick={() => handleDeleteGearComment(comment._id)}>
@@ -44,8 +45,8 @@ const UserGearComment = ({ username }) => {
                             </Button>
                         </Card> 
                     </div>      
-                    )   
-                )}
+                    );
+                })}
             </div>
         </div>     
     );

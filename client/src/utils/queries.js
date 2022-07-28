@@ -92,6 +92,7 @@ export const QUERY_RECIPE = gql`
 export const QUERY_RECIPE_COMMENT_BY_USER = gql`
     query recipeCommentUser {
         recipeCommentUser {
+            _id
             username
             commentTitle
             commentText

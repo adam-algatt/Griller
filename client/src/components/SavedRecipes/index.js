@@ -24,32 +24,31 @@ const SavedRecipes = ({ username }) => {
     };
 
     return (
-        <div className="card-container">
+        <div>
             <div className='card-header'>
-                <h3 className="profileHeader">
+                <h3>
                     {userData.savedRecipes.length
-                    ? `Viewing ${username}'s saved gear`
+                    ? `Viewing ${username}'s saved recipes`
                     : 'You have no saved recipes!'}
                 </h3>
-                <div>
+            </div>
+                <div className="card-body">
                     {userData.savedRecipes.map((recipe) => {
                         return (
                         <div key={recipe._id}>
-                        <Card className="card-body">
+                        <Card className="pill mb-3">
                             <img className="recipe_image_small" src={recipe.image} alt={recipe.title}/>
                             <h4>Recipe:  {recipe.title}</h4>  
                             <h3><Link to={`/recipe/${recipe._id}`}>Go to the recipe page</Link></h3>
                             <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipe(recipe._id)}>
-                                {console.log(recipe._id)}
                                 Delete
                             </Button>
                         </Card>  
                         </div>
                     );
                 })}                    
-                </div>  
-            </div>
-        </div>     
+            </div>  
+        </div>   
     );
 };
 

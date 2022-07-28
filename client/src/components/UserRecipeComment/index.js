@@ -14,11 +14,11 @@ const UserRecipeComment = ({ username }) => {
 
     // const [removeRecipeComment, { error }] = useMutation(REMOVE_RECIPE_COMMENT);
 
-    const handleDeleteRecipeComment = async (_id) => {
+    const handleDeleteRecipeComment = async ( _id ) => {
       
         try {
             const { data } = await removeRecipeComment({
-                variables: {_id }
+                variables: { _id }
             });
         } catch (err) {
             console.error(err);
@@ -33,16 +33,17 @@ const UserRecipeComment = ({ username }) => {
             <div className="card-body">
                 {recipeCommentUser &&
                     recipeCommentUser.map(comment => (
-                    <div>    
-                        <Card className="pill mb-3" key={comment._id}>
-                            <img className="recipe_image_small" src={comment.recipeId.image} alt={comment.title}/>
-                            <h3>Recipe:  {comment.recipeId.title}</h3>
-                            <h3> Comment Title: {comment.commentTitle}</h3>
+                    <div key={comment._id}>    
+                        <Card className="pill mb-3">
+                            <img className="recipe_image_small" src={comment.recipeId.image} alt={comment.recipeId.title}/>
+                            <h4>Recipe:  {comment.recipeId.title}</h4>
+                            <h4> Comment Title: {comment.commentTitle}</h4>
                             <h4>{comment.commentText}</h4>
                                                
                             <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipeComment(comment._id)}>
                                 Delete
                             </Button>
+                            {console.log(comment._id)}
                         </Card> 
                     </div>      
                     )   

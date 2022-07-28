@@ -78,7 +78,7 @@ const resolvers = {
         },
         gearByCategory: async( parent, { category } ) => {
             return Gear.find({ category })
-                .populate('gearComment');
+                .populate('gearComments');
         },
     },
 
@@ -191,14 +191,6 @@ const resolvers = {
             
             return deletedRecipe;
         },
-        updateRecipeComment: async ( parent, { _id }) => {
-            const updatedRecipe = await RecipeComment.findByIdAndUpdate(
-                { _id: _id },
-                { $push: { recipeId: {_id}}},
-            ).populate('Recipe')
-
-                return updatedRecipe
-        }
     },
 };
 
