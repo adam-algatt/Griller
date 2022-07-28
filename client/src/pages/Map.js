@@ -33,7 +33,6 @@ const portland = {
   lat: 45.51,
   lng: -122.67, 
 };
-C:\Users\Adam\Documents\griller\client\src\pages\Map.js
 
 export default function Places() {
   const { isLoaded } = useLoadScript({
