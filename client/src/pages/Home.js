@@ -8,12 +8,13 @@ const Home = () => {
             <h3>Your headquarters for all things related to the barbecue!</h3>
             <div className='buttons'>
                 <button className="recipes">
-                    <Link to="/recipes" className="link">Recipes</Link>
+                    <Link to="/recipes" className="home_link">Recipes</Link>
                 </button>
                 <button className="gear">
-                    <Link to="/gear" className="link">Gear</Link>
+                    <Link to="/gear" className="home_link">Gear</Link>
                 </button>
-                <button className="restaurants">Restaurants</button>
+                <button className="restaurants">Restaurants-Under Construction</button>
+
             </div>
         </div>
     );

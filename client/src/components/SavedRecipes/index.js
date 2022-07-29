@@ -1,27 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Button } from 'react-bootstrap';
-import { useQuery, useMutation } from '@apollo/client';
+import { Card } from 'react-bootstrap';
+import { useQuery } from '@apollo/client';
 import { QUERY_ME } from '../../utils/queries';
-import { REMOVE_RECIPE} from '../../utils/mutations';
+// import { REMOVE_RECIPE} from '../../utils/mutations';
 
 
 const SavedRecipes = ({ username }) => {
 
     const { data } = useQuery(QUERY_ME);
-    const [removeRecipe, { error }] = useMutation(REMOVE_RECIPE);
+    // const [removeRecipe, { error }] = useMutation(REMOVE_RECIPE);
     const userData = data?.me || {};
 
-    const handleDeleteRecipe = async (event) => {
+    // const handleDeleteRecipe = async (event) => {
         
-        try {
-            const { data } = await removeRecipe({
-                variables: {}
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    //     try {
+    //         const { data } = await removeRecipe({
+    //             variables: {}
+    //         });
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
 
     return (
         <div>
