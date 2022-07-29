@@ -62,10 +62,9 @@ left: 0;
 bottom: 0;
 height: 0;
 width: 100%;
-color: white ;
 background-color: #ffc506;
 transition: .4s ease;
-z-index: +.25;
+z-index: -1;
 }
 
 .link:hover::after {

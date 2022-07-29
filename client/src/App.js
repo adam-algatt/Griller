@@ -15,7 +15,7 @@ import SingleRecipe from './pages/SingleRecipe';
 import Profile from './pages/Profile';
 import Gear from './pages/Gear';
 import SingleGear from './pages/SingleGear';
-
+// import Map from './pages/Map';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -77,6 +77,10 @@ function App() {
                     path="/gear/:id"
                     element={<SingleGear />}
                   />
+                  {/* <Route
+                    path="/map"
+                    element={<Map />} 
+                  />*/}
                   <Route
                     path="/profile">
                       <Route path=":username" element={<Profile />} />
