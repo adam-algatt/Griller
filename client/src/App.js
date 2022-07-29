@@ -80,7 +80,7 @@ function App() {
                   />
                     <Route
                     path="/map"
-                    element={<Map />}
+                    element={<Map />} 
                   />
                   <Route
                     path="/profile">
