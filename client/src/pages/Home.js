@@ -13,8 +13,9 @@ const Home = () => {
                 <button className="gear">
                     <Link to="/gear" className="home_link">Gear</Link>
                 </button>
-                <button className="restaurants">Restaurants-Under Construction</button>
-
+                <button className="restaurants">
+                    <Link to="/map" className="home_link">Find Food</Link>
+                </button>
             </div>
         </div>
     );
