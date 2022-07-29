@@ -40,9 +40,9 @@ const UserGearComment = ({ username }) => {
                             <h4> Comment Title: {comment.commentTitle}</h4>
                             <h4>{comment.commentText}</h4>
                                                
-                            <Button className='btn-block btn-danger' onClick={() => handleDeleteGearComment(comment._id)}>
+                            {/* <Button className='btn-block btn-danger' onClick={() => handleDeleteGearComment(comment._id)}>
                                 Delete
-                            </Button>
+                            </Button> */}
                         </Card> 
                     </div>      
                     );
