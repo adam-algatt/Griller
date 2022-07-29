@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import './App.css'
 import { GoogleMap, 
 useLoadScript,
 Marker,
@@ -36,7 +35,7 @@ const portland = {
 
 export default function Places() {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: ,
     libraries,
   });
 
@@ -48,20 +47,20 @@ function Map() {
 // default state is arr w/ empty object for addition of lat & lng coordinates later on
   const [selected, setSelected] = useState(null);
 
-// const restaurantStyling = [
-//   {
-// "featureType": "poi.establishment",
-// "stylers": [
-//   {"visibility": "off"}
-// ]
-// },
-//   {
-//     "featureType": "poi.food",
-//     "stylers": [
-//       {"visibility": "on"}
-//     ]
-//     },
-// ];
+const restaurantStyling = [
+  {
+"featureType": "poi.establishment",
+"stylers": [
+  {"visibility": "off"}
+]
+},
+  {
+    "featureType": "poi.food",
+    "stylers": [
+      {"visibility": "on"}
+    ]
+    },
+];
 
   return (
     <>
@@ -78,7 +77,7 @@ center={selected === null ? portland : selected}
 zoom={15}
 mapContainerClassName="map-container"
 mapContainerStyle={mapContainerStyle}
-// options={{ styles: restaurantStyling }}
+options={{ styles: restaurantStyling }}
 >
 {/* place marker on selection */}
 {selected && <Marker 
