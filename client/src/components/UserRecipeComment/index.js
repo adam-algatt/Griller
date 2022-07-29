@@ -40,10 +40,10 @@ const UserRecipeComment = ({ username }) => {
                             <h4> Comment Title: {comment.commentTitle}</h4>
                             <h4>{comment.commentText}</h4>
                                                
-                            <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipeComment(comment._id)}>
+                            {/* <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipeComment(comment._id)}>
                                 Delete
-                            </Button>
-                            {console.log(comment._id)}
+                            </Button> */}
+                        
                         </Card> 
                     </div>      
                     )   

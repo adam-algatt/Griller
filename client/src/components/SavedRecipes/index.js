@@ -40,9 +40,9 @@ const SavedRecipes = ({ username }) => {
                             <img className="recipe_image_small" src={recipe.image} alt={recipe.title}/>
                             <h4>Recipe:  {recipe.title}</h4>  
                             <h3><Link to={`/recipe/${recipe._id}`}>Go to the recipe page</Link></h3>
-                            <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipe(recipe._id)}>
+                            {/* <Button className='btn-block btn-danger' onClick={() => handleDeleteRecipe(recipe._id)}>
                                 Delete
-                            </Button>
+                            </Button> */}
                         </Card>  
                         </div>
                     );
