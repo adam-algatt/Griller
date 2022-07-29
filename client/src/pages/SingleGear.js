@@ -5,7 +5,7 @@ import SaveGear from '../components/SaveGear';
 import GearComment from '../components/GearComment';
 import GearCommentForm from '../components/GearCommentForm';
 import { useQuery } from '@apollo/client';
-import { QUERY_SINGLE_GEAR, QUERY_ME } from '../utils/queries';
+import { QUERY_SINGLE_GEAR } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
@@ -32,7 +32,7 @@ const SingleGear = props => {
                         <SaveGear gearId={gear._id} />
                     )} 
                     <div className="singleRecipeCard">
-                        <a href={gear.link} alt="link to gear" target="_blank">
+                        <a href={gear.link} alt="link to gear" target="_blank" rel="noreferrer">
                             <p className="mb-0"> 
                                 Click here to get the gear!
                             </p>

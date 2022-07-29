@@ -98,6 +98,14 @@ export const REMOVE_RECIPE_COMMENT = gql`
     mutation removeRecipeComment($_id: ID!) {
         removeRecipeComment(_id: $_id) {
             _id
+            commentTitle
+            commentText
+            recipeId {
+                _id
+                title
+                image 
+                link
+            }
         }
     }
 `;

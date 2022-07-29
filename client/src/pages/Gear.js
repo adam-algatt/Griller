@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Col, Form, Button, Card, ToggleButtonGroup } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Col, Form, ToggleButtonGroup } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import GearList from '../components/GearList'; 
 import { QUERY_GEAR_BY_CATEGORY } from '../utils/queries';

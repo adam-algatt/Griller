@@ -5,7 +5,7 @@ import SaveRecipe from '../components/SaveRecipe';
 import RecipeComment from '../components/RecipeComment';
 import RecipeCommentForm from '../components/RecipeCommentForm';
 import { useQuery } from '@apollo/client';
-import { QUERY_RECIPE, QUERY_ME } from '../utils/queries';
+import { QUERY_RECIPE } from '../utils/queries';
 
 import Auth from '../utils/auth';
 
@@ -32,7 +32,7 @@ const SingleRecipe = props => {
                         <SaveRecipe recipeId={recipe._id} />
                     )} 
                     <div className="singleRecipeCard">
-                        <a href={recipe.link} alt="link to recipe" target="_blank">
+                        <a href={recipe.link} alt="link to recipe" target="_blank" rel="noreferrer">
                             <p className="mb-0"> 
                                 Click here to get the recipe!
                             </p>

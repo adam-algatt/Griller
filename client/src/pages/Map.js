@@ -35,7 +35,7 @@ const portland = {
 
 export default function Places() {
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: ,
+    googleMapsApiKey: 'AIzaSyCn7Q43VrRhRhefia3wZ1_6x0rojYjMzeo',
     libraries,
   });
 

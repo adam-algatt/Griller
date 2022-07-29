@@ -11,8 +11,12 @@
     "@testing-library/user-event": "^13.5.0",
     "apollo-server-express": "^3.9.0",
     "graphql": "^16.5.0",
+<<<<<<< HEAD
     "react": "17.0.2",
     "react-bootstrap": "^2.4.0",
+=======
+    "react": "^18.2.0",
+>>>>>>> ee011a49a8ad4697a746a779c90afac138751df0
     "react-dom": "^18.2.0",
     "react-scripts": "^2.1.3",
     "use-places-autocomplete": "^4.0.0",
