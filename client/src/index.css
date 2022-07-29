@@ -73,12 +73,17 @@ transition-delay: 0.4s;
 color: aliceblue;
 }
 
+.home_link {
+  font: xx-large;
+  color: yellow;
+  font-size: 40pt;
+}
 .recipes {
 background:url(./assets/brisket-ribs-chicken.jpg);
 height: 500px;
 width: 700px;
 background-repeat: no-repeat;
-font-size:xx-large;
+font-size: xx-large;
 font-weight:bolder;
 flex: 33.33%;
 padding: 5px;
@@ -88,8 +93,8 @@ background:url(./assets/grill.webp);
 height: 500px;
 width: 700px;
 background-repeat: no-repeat;
-font-size: xx-large;
 font-weight:bolder;
+color: yellow;
 background-size: cover;
 flex: 33.33%;
 padding: 5px;
@@ -99,7 +104,9 @@ background:url(./assets/restaurant.jpg);
 height: 500px;
 width: 700px;
 background-repeat: no-repeat;
-font-size: xx-large;
+font-size: 40pt;
+color: blue;
+text-shadow: #080808;
 font-weight:bolder;
 flex: 33.33%;
 padding: 5px;

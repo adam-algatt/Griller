@@ -1,29 +1,29 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { QUERY_RECIPE_COMMENT_BY_USER} from '../../utils/queries';
-import { useMutation } from '@apollo/client';
-import { REMOVE_RECIPE_COMMENT} from '../../utils/mutations';
+// import { useMutation } from '@apollo/client';
+// import { REMOVE_RECIPE_COMMENT} from '../../utils/mutations';
 
 
 const UserRecipeComment = ({ username }) => {
 
     const { data } = useQuery(QUERY_RECIPE_COMMENT_BY_USER);
-    const [removeRecipeComment, { error }] = useMutation(REMOVE_RECIPE_COMMENT)
+    // const [removeRecipeComment, { error }] = useMutation(REMOVE_RECIPE_COMMENT)
     const recipeCommentUser = data?.recipeCommentUser || [ ]
 
     // const [removeRecipeComment, { error }] = useMutation(REMOVE_RECIPE_COMMENT);
 
-    const handleDeleteRecipeComment = async ( _id ) => {
+    // const handleDeleteRecipeComment = async ( _id ) => {
       
-        try {
-            const { data } = await removeRecipeComment({
-                variables: { _id }
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    //     try {
+    //         const { data } = await removeRecipeComment({
+    //             variables: { _id }
+    //         });
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
 
     return (
         <div>

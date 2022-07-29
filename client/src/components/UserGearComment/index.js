@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { QUERY_GEAR_COMMENT_BY_USER} from '../../utils/queries';
-import { useMutation } from '@apollo/client';
-import { REMOVE_GEAR_COMMENT} from '../../utils/mutations';
+// import { useMutation } from '@apollo/client';
+// import { REMOVE_GEAR_COMMENT} from '../../utils/mutations';
 
 
 const UserGearComment = ({ username }) => {
@@ -11,18 +11,18 @@ const UserGearComment = ({ username }) => {
     const { data } = useQuery(QUERY_GEAR_COMMENT_BY_USER);
     const gearCommentUser = data?.gearCommentUser || []
 
-    const [removeGearComment, { error }] = useMutation(REMOVE_GEAR_COMMENT);
+    // const [removeGearComment, { error }] = useMutation(REMOVE_GEAR_COMMENT);
 
-    const handleDeleteGearComment = async ( _id) => {
+    // const handleDeleteGearComment = async ( _id) => {
         
-        try {
-            const { data } = await removeGearComment({
-                variables: { _id }
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    //     try {
+    //         const { data } = await removeGearComment({
+    //             variables: { _id }
+    //         });
+    //     } catch (err) {
+    //         console.error(err);
+    //     }
+    // };
 
     return (
         <div>
