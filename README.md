@@ -6,6 +6,16 @@
 
  Griller is a social site that allows users to create posts and make comments on other user's post's. The site is designed around a grilling-centric theme. Aside from making posts and commenting on friend's posts, users have the ability to add their favorite recipes and restaurants to their profile. 
 
+ ## Built With
+* React
+* JSX
+* CSS
+* Express.js
+* GraphQL
+* Mongoose
+* MongoDB
+* Node.js
+
 ## Table of Contents
 
 * [Installation](#installation)
@@ -14,11 +24,7 @@
 
 * [License](#license)
 
-* [Tests](#tests)
-
 * [Contributing](#contributing)
-
-* [Testing](#testing)
 
 * [NewTech](#newtech)
 
@@ -43,10 +49,6 @@ click on the register tab to create a new profile. If you have used any other so
 ## Contributing 
 
 Feel free to do a pull request from GitHub.
-
-## Testing 
-
-No testing required. 
 
 ## NewTech 
 
