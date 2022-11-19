@@ -1,5 +1,7 @@
 body {
 margin: 0;
+padding: 0;
+overflow-x: hidden;
 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
 sans-serif;
@@ -8,9 +10,28 @@ sans-serif;
 background-color: #1e1e2b;
 }
 
+/* gets rid of blinking cursor when clicking on or near
+animated Griller text */
+span {
+  caret-color: transparent;
+}
+
+body > * {
+ padding: 0;
+ margin: 0; 
+ width: 100vw;
+}
+
 code {
 font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 monospace;
+}
+
+.nav-ul {
+padding: 10px 20px; 
+position: absolute;
+top: 5vh;
+left: 0; 
 }
 
 a, p {
@@ -19,20 +40,17 @@ font-size: 30px;
 }
 
 a.link {
-display: inline-block;
-margin-block: 2px;
 text-decoration: none;
 color: #c2c2c2;
 position: relative;
 text-shadow: 0 0 10px rgba(88, 87, 87, 0.5);
 background: transparent;
 border: none;
-padding: 1em 1.5em;
 text-transform: uppercase;
 transition: .5s ease;
-width: auto;
-margin-left: 5%;
-letter-spacing: 0.05em;
+margin-right: 10px;
+padding: 5px 10px;
+letter-spacing: 0.75px;
 }
 
 a.link::before {
@@ -121,8 +139,11 @@ background:url(./assets/fire2.gif);
 font-family: fantasy;
 -webkit-text-fill-color: transparent;
 -webkit-background-clip: text;
-font-size: 100px;
-float: left;
+font-size: 75px;
+position: absolute;
+top: auto; 
+right: 5%;
+/* float: left; */
 }
 
 .recipe_image {
@@ -135,17 +156,17 @@ height: 450px;
 width: 600px
 }
 
-header {
+.header {
 display: flex;
-padding: 10px 20px;
+padding: 5px 10px;
 background-color: #36454f; 
-/* justify-content: space-between;
-flex-wrap: wrap; */
-position: -webkit-sticky;
-top: 0;
+align-items: center;
+justify-content: center;
 border-bottom: 3px solid rgb(170, 64, 64);
 z-index: -1;
-
+/* relative for absolute positioning inside 
+nav area */
+position: relative;
 }
 
 .login-box {
@@ -672,9 +693,7 @@ position:relative;
 
 nav {
 clear: both;
-width: 100%;
-height: 180px;
-text-align: right;
+height: 10vh;
 }
 
 .card {

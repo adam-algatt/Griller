@@ -16,7 +16,7 @@ const Nav = () => {
               <span>
                 <Link to="/home" className='title'>Griller</Link>
               </span>
-              <ul>
+              <ul className='nav-ul'>
                   {Auth.loggedIn() ? (
                 <>
                   <a href="/" className="link" onClick={logout}>
